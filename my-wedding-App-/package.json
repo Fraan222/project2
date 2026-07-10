@@ -1,0 +1,28 @@
+{
+  "name": "my-wedding-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "author": "Juan Cruz Mezzopeva",
+  "license": "UNLICENSED",
+  "description": "Wedding invitation web app for Florencia Montes & Juan Cruz Mezzopeva",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "lucide-react": "^0.563.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwindcss": "^4.1.18"
+  }
+}
