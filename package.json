@@ -1,0 +1,25 @@
+{
+  "name": "my-wedding-app",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Juan-Cruz-Mezzopeva/my-wedding-App#readme",
+  "bugs": {
+    "url": "https://github.com/Juan-Cruz-Mezzopeva/my-wedding-App/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juan-Cruz-Mezzopeva/my-wedding-App.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.1",
+    "tailwindcss": "^4.3.3"
+  }
+}

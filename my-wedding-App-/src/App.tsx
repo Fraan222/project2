@@ -128,16 +128,16 @@ export default function App(): React.JSX.Element {
 
   // Imágenes del carousel
   const carouselImages: string[] = [
-    '/Tadicional-Juntos.webp',
-    '/Foto-abrazados-porton-madera.webp',
-    '/a-caballito-blanco-negro.webp',
-    '/abrazo-galery.webp',
-    '/Flor-con-flor-abrazados.webp',
+    '/DSC_5712.JPG',
+    '/DSC_6465.JPG',
+    '/DSC_6608.JPG',
+    '/DSC_6751.JPG',
+    '/DSC_6717.jpg',
     '/Flor&Juan-8.webp',
     '/Flor-a-Cococho.webp',
   ];
 
-  const novios: string = "Flor & Juan";
+  const novios: string = "Flor & Yoel";
 
 
   // ============================================
@@ -523,7 +523,7 @@ export default function App(): React.JSX.Element {
             fadeOut ? 'opacity-0' : 'opacity-100'
           }`}
           style={{
-            backgroundImage: `radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/manos-anillo-horizontal.webp')`
+            backgroundImage: `radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/DSC_5798.JPG')`
           }}
         >
           <div className="text-center px-4 animate-fade-in">
@@ -536,7 +536,7 @@ export default function App(): React.JSX.Element {
               Nos casamos
             </p>
             <p className="text-lg md:text-xl text-silver-mist mb-12">
-              18 de Abril, 2026
+              6 de Febrero, 2027
             </p>
             <p className="text-sm md:text-base text-silver-mist animate-bounce">
               Toca para continuar
@@ -585,7 +585,7 @@ export default function App(): React.JSX.Element {
         <section
           className="min-h-screen flex items-center justify-center relative bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${VIDEO_BACKGROUND_IMAGE}')`
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('DSC_6050.JPG')`
           }}
         >
           <div className="container mx-auto px-4 text-center text-white">
@@ -597,7 +597,7 @@ export default function App(): React.JSX.Element {
              {novios}
             </div>
 
-            <p className="text-xl md:text-2xl mb-2">Sábado 18 de Abril 2026</p>
+            <p className="text-xl md:text-2xl mb-2"> Sábado 06 de Febrero 2027</p>
             <p className="text-lg md:text-xl mb-12"></p>
 
             {/* Countdown */}
@@ -640,7 +640,7 @@ export default function App(): React.JSX.Element {
         <section
           className="py-16 md:py-24 relative bg-cover bg-center bg-fixed overflow-hidden"
           style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/bosque-camino.webp')`
+            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), `
           }}
           id="date-time"
           >
@@ -648,8 +648,8 @@ export default function App(): React.JSX.Element {
           <div
             className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
             style={{
-              backgroundImage: `url('/bosque-camino.webp')`,
-              opacity: 0.5
+              backgroundImage: `url('DSC_6077.JPG')`,
+              opacity: 0.6
             }}
           />
 
@@ -658,11 +658,11 @@ export default function App(): React.JSX.Element {
               Fecha y Hora
             </h2>
 
-            <div className={`max-w-2xl mx-auto bg-white/40 backdrop-blur-sm shadow-2xl p-8 md:p-12 rounded-2xl ${dateTimeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
+            <div className={`max-w-2xl mx-auto bg-white/20 backdrop-blur-sm shadow-2xl p-8 md:p-12 rounded-2xl ${dateTimeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
               <div className="text-center space-y-6">
                 <div className={`text-xl md:text-2xl text-dark-espresso ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>Sábado</div>
-                <div className={`text-6xl md:text-8xl font-bold text-warm-taupe ${dateTimeVisible ? 'animate-scale-in-content' : 'opacity-0'}`}>18</div>
-                <div className={`text-xl md:text-2xl text-dark-espresso ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>Abril 2026</div>
+                <div className={`text-6xl md:text-8xl font-bold text-warm-taupe ${dateTimeVisible ? 'animate-scale-in-content' : 'opacity-0'}`}>06</div>
+                <div className={`text-xl md:text-2xl text-dark-espresso ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>Febrero 2027</div>
 
                 <div className="my-8 flex justify-center">
                   <div className={`border-t-2 border-gray-sage ${dateTimeVisible ? 'animate-expand-width' : 'w-0'}`} />
@@ -671,12 +671,12 @@ export default function App(): React.JSX.Element {
                 <div className="space-y-6">
                   <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
                   <p className="font-semibold text-dark-espresso mb-2">Recepción:</p>
-                  <p className="text-3xl md:text-4xl text-warm-taupe">11:30 <span className='text-xl'> am</span></p>
+                  <p className="text-3xl md:text-4xl text-warm-taupe">18:30<span className='text-xl'>pm</span></p>
                   </div>
                   
                   <div className={dateTimeVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}>
                   <p className="font-semibold text-dark-espresso mb-2">Ceremonia y Celebración:</p>
-                    <p className="text-3xl md:text-4xl text-warm-taupe">12:00 - 17:00 <span className='text-xl'> hs</span></p>
+                    <p className="text-3xl md:text-4xl text-warm-taupe">19:00 - 01:00 <span className='text-xl'> hs</span></p>
                   </div>
                 </div>
                 <div className='text-transparent'>si encontraste esto es de curioso y no te ganaste nada</div>
@@ -703,20 +703,20 @@ export default function App(): React.JSX.Element {
 
         {/* Location Section */}
         <section
-          className="py-16 md:py-24 relative bg-cover bg-center bg-fixed overflow-hidden"
+          className="py-16 md:py-24 relative bg-cover bg-center overflow-hidden"
           style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/ful-screen-ubicacion.webp')`
+            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('DSC_6626.JPG')`
           }}
           id="date-time"
           >
-          {/* Animación de parallax sutil en el fondo */}
+          {/* Animación de parallax sutil en el fondo 
           <div
             className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
             style={{
               backgroundImage: `url('/ful-screen-ubicacion.webp')`,
               opacity: 0.7
             }}
-          />
+          />*/}
 
           <div className="container mx-auto px-4 relative z-10">
             <h2 className={`font-serif italic text-4xl md:text-6xl text-center text-dark-espresso mb-12 ${dateTimeVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -727,7 +727,7 @@ export default function App(): React.JSX.Element {
               <div className="text-center space-y-6">
                 <div className={`text-xl md:text-2xl text-dark-espresso ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}> 
                 <h3 className="text-2xl md:text-3xl font-semibold text-warm-taupe text-center mb-4">
-                La Quinta Casona
+                Saint George Village
               </h3></div>
                 <div className={`text-6xl md:text-8xl font-bold text-warm-taupe ${dateTimeVisible ? 'animate-scale-in-content' : 'opacity-0'}`}> </div>
                 <div className={`text-xl md:text-2xl text-dark-espresso ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}> </div>
@@ -739,27 +739,27 @@ export default function App(): React.JSX.Element {
                 <div className="space-y-6">
                   <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
                 <p className="text-center text-gray-sage mb-8">
-                Calle Celso Barrios   No. 3490<br />
+                Autopista 19 km 7 (Altura Fábrica Bimbo)<br />
                 Córdoba, Argentina 
               </p>
                   </div>
 
-                  <div className={dateTimeVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}>
-                  <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.3815122485803!2d-64.15569858859112!3d-31.458689798190562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a32df996b257%3A0x49eea3e9a3acaacf!2sLa%20Quinta%20Casona!5e0!3m2!1ses-419!2sar!4v1769862619139!5m2!1ses-419!2sar"
-                  width="100%"
-                  height="350"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  className="w-full"
-                  title="Ubicación del evento"
-                />
-                  </div>
+                 <div className={dateTimeVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}>
+  <iframe
+    src="https://www.google.com/maps?q=-31.3914333,-64.0463448&output=embed"
+    width="100%"
+    height="350"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    className="w-full"
+    title="Ubicación del evento"
+  />
+</div>
                 </div>
 
                 <a
-                href="https://maps.app.goo.gl/M1wW9fvvmrGVGaTh8"
+                href="https://maps.app.goo.gl/m7X3zUsHA4Qv4tZr9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-warm-taupe hover:bg-dark-espresso text-white px-8 py-4 rounded-full text-lg font-medium transition-all hover:scale-105 shadow-lg w-full"
@@ -789,9 +789,8 @@ export default function App(): React.JSX.Element {
                   <div>
                     <p className="text-lg font-medium text-dark-espresso mb-4">Adultos</p>
                     <ul className="text-gray-sage text-lg">
-                      <li className="mb-4">Febrero: $-------</li>
-                      <li className="mb-4">Marzo: $-------</li>
-                      <li className="mb-4">Abril: $-------</li>
+                      <li className="mb-4">Septiembre 2026 - Diciembre 2026: $100.000</li>
+                      <li className="mb-4">Enero 2027: $115.000</li>
                     </ul>
                   </div>
 
@@ -799,9 +798,8 @@ export default function App(): React.JSX.Element {
                   <div>
                     <p className="text-lg font-medium text-dark-espresso mb-4">Menores de 3 a 10 años</p>
                     <ul className="text-gray-sage text-lg">
-                      <li className="mb-4">Febrero: $-------</li>
-                      <li className="mb-4">Marzo: $-------</li>
-                      <li className="mb-4">Abril: $-------</li>
+                      <li className="mb-4">Septiembre 2026 - Diciembre 2026: $40.000</li>
+                      <li className="mb-4">Enero 2027: $45.000</li>
                     </ul>
                   </div>
                 </div>
@@ -940,7 +938,7 @@ export default function App(): React.JSX.Element {
             <div className={`max-w-2xl mx-auto bg-white/20 backdrop-blur-sm shadow-2xl p-8 md:p-12 rounded-2xl ${dressCodeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
               <div className="text-center space-y-6">
                 <div className={`text-2xl md:text-3xl font-semibold text-warm-taupe ${dressCodeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>
-                  Semi Formal
+                  Formal
                 </div>
 
                 <div className={`text-lg text-dark-espresso ${dressCodeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>
@@ -949,24 +947,24 @@ export default function App(): React.JSX.Element {
                 <div className="my-8 flex justify-center">
                   <div className={`border-t-2 border-gray-sage ${dressCodeVisible ? 'animate-expand-width' : 'w-0'}`} />
                 </div>
-
+                    /*
                 <div className="grid md:grid-cols-2 gap-6 text-left">
-                  <div className={`bg-cream-beige/20 rounded-xl p-6 ${dressCodeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}`}>
-                    <h3 className="text-xl font-semibold text-dark-espresso mb-3">Para Ellas</h3>
+                 <div className={`bg-cream-beige/20 rounded-xl p-6 ${dressCodeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}`}>
+                    {/*<h3 className="text-xl font-semibold text-dark-espresso mb-3">Para Ellas</h3>*/}
                     <ul className="space-y-2 text-gray-sage">
 
-                    <li>• Evitar: blanco, crema, marfil</li>
-                    <li>• Evitar: tonos muy claros</li>
+                    <li> </li>
+                    <li></li>
 
                     </ul>
                   </div>
 
                   <div className={`bg-cream-beige/20 rounded-xl p-6 ${dressCodeVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}`}>
-                    <h3 className="text-xl font-semibold text-dark-espresso mb-3">Para Ellos</h3>
+                   {/* <h3 className="text-xl font-semibold text-dark-espresso mb-3">Para Ellos</h3>*/}
                     <ul className="space-y-2 text-gray-sage">
-                      <li>• Traje o camisa</li>
-                      <li>• Sugerencia: Corbata o moño</li>
-                      <li>• Colores sugeridos: oscuros</li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
                     </ul>
                   </div>
                 </div>
@@ -1002,7 +1000,7 @@ export default function App(): React.JSX.Element {
 
                   <div className={`text-base md:text-lg text-gray-sage ${giftsVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}`}>
                     <p className="mb-4">
-                      Si aun así querés hacernos un presente, podés elegir algo de la lista de abajo o transferir el monto que desees para nuestra luna de miel, a la siguiente cuenta.
+                      Si aun así querés hacernos un presente podés transferir el monto que desees para nuestra luna de miel a la siguiente cuenta:
                     </p>
                   </div>
 
@@ -1028,7 +1026,7 @@ export default function App(): React.JSX.Element {
                       className="flex items-center justify-center gap-2 bg-warm-taupe hover:bg-dark-espresso text-white px-8 py-4 rounded-full text-lg font-medium transition-all hover:scale-105 shadow-lg w-full"
                     >
                       <Gift className="w-5 h-5" />
-                      Ver Lista de Regalos
+                     {/* Ver Lista de Regalos*/}
                     </a>
                   </div>
                 </div>
@@ -1038,11 +1036,13 @@ export default function App(): React.JSX.Element {
         </section>
 
         {/* Footer */}
+        
         <footer className="bg-dark-espresso text-silver-mist py-8">
           <div className="container mx-auto px-4 text-center">
             <p className="flex items-center justify-center gap-2 mb-4">
-              2026 © Creado con <Heart className="w-5 h-5 text-warm-taupe fill-current" /> para Flor & Juan
+              2026 © Creado con <Heart className="w-5 h-5 text-warm-taupe fill-current" /> 
             </p>
+            
             <div className="flex justify-center gap-6">
               <a
                 href="https://instagram.com/florenciamontes90"
