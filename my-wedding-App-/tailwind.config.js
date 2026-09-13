@@ -16,7 +16,7 @@ export default {
         'espresso-terracota': '#382f25',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
+        serif: ['adobe-garamond-pro', 'serif'],
         sans: ['Montserrat', 'sans-serif'],
       },
       animation: {

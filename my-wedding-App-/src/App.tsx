@@ -120,7 +120,7 @@ export default function App(): React.JSX.Element {
   // ============================================
 
   const GOOGLE_SCRIPT_URL: string = 'https://script.google.com/macros/s/AKfycbyHVJ8yX7XIkdAFq-kEmRnQ6UEoHjwMn69r2elgWpzhNCrfltHYnGhaauXoQjy2_O6JEw/exec';
-  const weddingDate: Date = new Date(2026, 3, 18, 17, 0, 0);
+  const weddingDate: Date = new Date(2027, 1, 6, 18, 30, 0);
 
   // URLs - Video local de la pareja
   const VIDEO_URL: string = '/Floryjuan-Reel-optimizdo.mp4';
@@ -128,13 +128,13 @@ export default function App(): React.JSX.Element {
 
   // Imágenes del carousel
   const carouselImages: string[] = [
-    '/DSC_5712.JPG',
-    '/DSC_6465.JPG',
-    '/DSC_6608.JPG',
-    '/DSC_6751.JPG',
-    '/DSC_6717.jpg',
-    '/Flor&Juan-8.webp',
-    '/Flor-a-Cococho.webp',
+    '/DSC_5804.JPG',
+    '/DSC_6837.JPG',
+    '/DSC_6256.JPG',
+    '/DSC_5675.JPG',
+    '/DSC_6644.JPG',
+    '/DSC_7149.JPG',
+    '/DSC_6817.JPG',
   ];
 
   const novios: string = "Flor & Yoel";
@@ -307,7 +307,7 @@ export default function App(): React.JSX.Element {
 
     // Precargar imagen del splash screen
     const splashImage = new Image();
-    splashImage.src = '/manos-anillo-horizontal.webp';
+    splashImage.src = '/DSC_6050.JPG';
     splashImage.onload = () => {
       setSplashImageLoaded(true);
       updateProgress();
@@ -545,102 +545,83 @@ export default function App(): React.JSX.Element {
         </div>
       )}
 
-      {/* ============================================ */}
-      {/* SECCIÓN DE VIDEO */}
-      {/* ============================================ */}
-      {!showSplash && !videoEnded && (
-        <div
-          className="fixed inset-0 z-50 bg-cover bg-center"
-          style={{ backgroundImage: `url('${VIDEO_BACKGROUND_IMAGE}')` }}
-        >
-          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <video
-              autoPlay
-              playsInline
-              onEnded={handleVideoEnd}
-              className="max-w-full max-h-full object-contain"
-            >
-              <source src={VIDEO_URL} type="video/mp4" />
-              Tu navegador no soporta el video.
-            </video>
-          </div>
-          {/* Botón para saltar el video */}
-          <button
-            onClick={handleVideoEnd}
-            className="absolute bottom-8 right-8 bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-full hover:bg-white/30 transition"
-          >
-            Saltar video
-          </button>
-        </div>
-      )}
+      
 
       {/* ============================================ */}
       {/* CONTENIDO PRINCIPAL (visible después del video) */}
       {/* ============================================ */}
-      <div className={`transition-opacity duration-1000 ${!videoEnded && !showSplash ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-
+<div className={`transition-opacity duration-1000 ${showSplash ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         {/* ============================================ */}
         {/* HERO SECTION - Imagen de fondo + Countdown + Botón RSVP */}
         {/* ============================================ */}
-        <section
-          className="min-h-screen flex items-center justify-center relative bg-cover bg-center"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('DSC_6050.JPG')`
-          }}
-        >
-          <div className="container mx-auto px-4 text-center text-white">
-            <div className="text-3xl md:text-4xl mb-6 font-serif italic text-amber-200">
-             Nos Casamos
-            </div>
+    <section
+  className="min-h-screen flex items-center justify-center relative overflow-hidden"
+>
+  {/* Imagen de fondo */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/DSC_6050.JPG')`,
+    }}
+  />
 
-            <div className="font-serif italic text-5xl md:text-7xl my-8">
-             {novios}
-            </div>
+ 
 
-            <p className="text-xl md:text-2xl mb-2"> Sábado 06 de Febrero 2027</p>
-            <p className="text-lg md:text-xl mb-12"></p>
+  <div className="container mx-auto px-4 text-center text-white relative z-10">
+    <div className="text-3xl md:text-4xl mb-6 font-serif italic text-amber-200">
+     Nos Casamos
+    </div>
 
-            {/* Countdown */}
-            <div className="flex justify-center gap-4 md:gap-8 flex-wrap mb-12">
-              {countdownItems.map((item, index) => (
-                <div key={index} className={`bg-white/20 backdrop-blur-md rounded-xl p-4 md:p-6 min-w-[80px] md:min-w-[100px] ${item.label === 'Segundos' ? 'hidden md:flex md:flex-col' : ''}`}>
-                  <div className="text-3xl md:text-5xl font-bold">
-                    {String(item.value).padStart(2, '0')}
-                  </div>
-                  <div className="text-sm md:text-base mt-2">{item.label}</div>
-                </div>
-              ))}
-            </div>
+    <div className="font-serif italic text-5xl md:text-7xl my-8">
+     {novios}
+    </div>
 
-            {/* Botón RSVP Principal */}
-            <button
-              onClick={openRSVPModal}
-              className="group relative inline-flex items-center justify-center gap-3 bg-warm-taupe hover:bg-dark-espresso text-white px-12 py-5 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-gray/50"
-            >
-              Confirma acá tu asistencia
-            </button>
+    <p className="text-xl md:text-2xl mb-2"> Sábado 06 de Febrero 2027</p>
+    <p className="text-lg md:text-xl mb-12"></p>
+
+    {/* Countdown */}
+    <div className="flex justify-center gap-4 md:gap-8 flex-wrap mb-12">
+      {countdownItems.map((item, index) => (
+        <div key={index} className={`bg-white/20 backdrop-blur-md rounded-xl p-4 md:p-6 min-w-[80px] md:min-w-[100px] ${item.label === 'Segundos' ? 'hidden md:flex md:flex-col' : ''}`}>
+          <div className="text-3xl md:text-5xl font-bold">
+            {String(item.value).padStart(2, '0')}
           </div>
-        </section>
+          <div className="text-sm md:text-base mt-2">{item.label}</div>
+        </div>
+      ))}
+    </div>
 
+    {/* Botón RSVP Principal */}
+    <button
+      onClick={openRSVPModal}
+      className="group relative inline-flex items-center justify-center gap-3 bg-warm-taupe hover:bg-dark-espresso text-white px-12 py-5 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-gray/50"
+    >
+      Confirma acá tu asistencia
+    </button>
+  </div>
+</section>
         {/* ============================================ */}
         {/* SECCIONES ADICIONALES */}
         {/* ============================================ */}
 
-        {/* Invitation Text */}
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center text-dark-espresso space-y-4">
-              <p className="text-lg md:text-2xl font-family-sans">Porque sos parte de nuestras vidas</p>
-              <p className="text-lg md:text-2xl font-family-sans ">queremos compartir con vos la alegría de casarnos</p>
-            </div>
-          </div>
-        </section>
-
+{/* Invitation Text */}
+{/* Invitation Text */}
+<section
+  className="py-16 md:py-24"
+  style={{ backgroundColor: 'rgb(251, 248, 242)' }}
+>
+  <div className="container mx-auto px-4">
+    <div className="max-w-3xl mx-auto text-center text-dark-espresso space-y-4">
+      <p className="text-lg md:text-2xl font-serif">Queremos compartir con vos</p>
+      <p className="text-lg md:text-2xl font-serif">uno de los días más importantes de nuestras vidas.</p>
+    </div>
+  </div>
+</section>
         {/* Date & Time Section */}
         <section
           className="py-16 md:py-24 relative bg-cover bg-center bg-fixed overflow-hidden"
           style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), `
+            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('DSC_6544.JPG')`
           }}
           id="date-time"
           >
@@ -648,7 +629,7 @@ export default function App(): React.JSX.Element {
           <div
             className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
             style={{
-              backgroundImage: `url('DSC_6077.JPG')`,
+              backgroundImage: `url('DSC_605.JPG')`,
               opacity: 0.6
             }}
           />
@@ -671,31 +652,42 @@ export default function App(): React.JSX.Element {
                 <div className="space-y-6">
                   <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
                   <p className="font-semibold text-dark-espresso mb-2">Recepción:</p>
-                  <p className="text-3xl md:text-4xl text-warm-taupe">18:30<span className='text-xl'>pm</span></p>
+                  <p className="text-3xl md:text-4xl text-warm-taupe">18:30<span className='text-xl'></span></p>
                   </div>
                   
                   <div className={dateTimeVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}>
-                  <p className="font-semibold text-dark-espresso mb-2">Ceremonia y Celebración:</p>
-                    <p className="text-3xl md:text-4xl text-warm-taupe">19:00 - 01:00 <span className='text-xl'> hs</span></p>
+                  <p className="font-semibold text-dark-espresso mb-2">Ceremonia y celebración:</p>
+                    <p className="text-3xl md:text-4xl text-warm-taupe">19:00 - 01:00 <span className='text-xl'> </span></p>
                   </div>
                 </div>
-                <div className='text-transparent'>si encontraste esto es de curioso y no te ganaste nada</div>
+                <div className='text'>La ceremonia comienza a la hora pactada, así que se ruega puntualidad.</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Invitation Text */}
+        {/* Invitation Text 
+        
+       
+
+De Norte a Sur, Dios trazó nuestros caminos hasta hacerlos coincidir en el centro.
+
+Hoy, unidos por el amor y guiados por la fe, elegimos comenzar juntos una nueva etapa y compartir la vida que Dios nos permitió encontrar el uno en el otro.
+
+Con mucha alegría, queremos celebrar este día junto a quienes amamos y son parte de nuestra historia.
+        
+        */}
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center text-dark-espresso space-y-4">
-            <p className="font-serif italic text-lg md:text-2xl">"Deléitate en el Señor, y Él concederá los deseos de tu corazón"</p>
-              <p className="text-lg  md:text-2xl font-family-sans">Dios permitió que nuestros caminos se encontraran.</p>
-                   <p className="text-lg  md:text-2xl font-family-sans">Hoy, con el corazón lleno de ilusión, elegimos compartir la vida juntos</p>
-              <p className="text-lg  md:text-2xl font-family-sans">y comenzar a vivir uno de nuestros sueños.</p>
-                   <p className="text-lg  md:text-2xl font-family-sans">Con amor y fe, decidimos dar este gran paso
+            <p className="font-serif italic text-lg md:text-2xl"> “Sobre todo revístanse de amor, que es el lazo de la perfecta unión.”
+Colosenses 3:14</p>
+              <p className="text-lg  md:text-2xl font-family-sans">De norte a sur, Dios trazó nuestros caminos hasta hacerlos coincidir en el centro del país.</p>
+                   <p className="text-lg  md:text-2xl font-family-sans">Hoy, unidos por el amor y guiados por la fe, elegimos comenzar juntos una nueva etapa y compartir la vida que Dios nos permitió encontrar el uno en el otro.</p>
+              <p className="text-lg  md:text-2xl font-family-sans">Con mucha alegría, queremos celebrar este día junto a quienes amamos y son parte de nuestra historia.</p>
+             {/*      <p className="text-lg  md:text-2xl font-family-sans">Con amor y fe, decidimos dar este gran paso
                     y celebrarlo con quienes son parte de nuestra historia.</p>
-              <p className="text-lg  md:text-2xl font-family-sans">¡Te esperamos para compartir juntos este nuevo comienzo!</p>
+              <p className="text-lg  md:text-2xl font-family-sans">¡Te esperamos para compartir juntos este nuevo comienzo!</p>*/}
             </div>
           </div>
         </section>
@@ -814,12 +806,12 @@ export default function App(): React.JSX.Element {
                   <div className="bg-cream-beige/20 rounded-xl p-6">
                     <h3 className="text-xl font-semibold text-warm-taupe mb-3">Datos para el pago</h3>
                     <p className="text-gray-sage">
-                      Alias: <span className="font-mono font-bold">Alias-De-Nvios</span><br />
-                      CVU: <span className="font-mono font-bold">-------</span><br />
-                      Banco: <span className="font-mono font-bold">Nombre de Banco</span><br />
-                      Titular: <span className="font-mono font-bold">Nombre de Titular</span><br /><br />
+                      Alias: <span className="font-mono font-bold">BODA.FLOR.YOEL</span><br />
+                      CBU: <span className="font-mono font-bold">4530000800015854237742</span><br />
+                      Banco: <span className="font-mono font-bold">Naranja X</span><br />
+                      Titular: <span className="font-mono font-bold">Erick Yoel Calpanchay</span><br /><br />
 
-                      Por favor, verificar los datos antes de realizar la transferencia
+                      Por favor, verificar los datos antes de realizar la transferencia.
                       
                     </p>
                   </div>
@@ -842,7 +834,7 @@ export default function App(): React.JSX.Element {
           <div className="w-full">
             <div className="text-center mb-8 md:mb-12 px-4">
               <h2 className="font-serif italic text-3xl md:text-5xl text-dark-espresso mb-4">
-                Acompañanos en esta aventura juntos
+                  Un nuevo capítulo comienza.
               </h2>
               <p className="text-gray-sage text-lg">sé testigo del inicio de nuestro viaje</p>
             </div>
@@ -913,66 +905,45 @@ export default function App(): React.JSX.Element {
 
         
 
-        {/* Dress Code Section */}
-        <section
-          className="py-16 md:py-24 relative bg-cover bg-center bg-fixed overflow-hidden"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/dress-code-bg.webp')`
-          }}
-          id="dress-code"
-        >
-          {/* Animación de parallax sutil en el fondo */}
-          <div
-            className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
-            style={{
-              backgroundImage: `url('/dress-code-bg.webp')`,
-              opacity: 0.5
-            }}
-          />
+       {/* Dress Code Section */}
+<section
+  className="py-16 md:py-24 relative bg-cover bg-center bg-fixed overflow-hidden"
+  style={{
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),  url('/DSC_6931.JPG')`
+  }}
+  id="dress-code"
+>
+  {/* Animación de parallax sutil en el fondo 
+  <div
+    className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
+    style={{
+      backgroundImage: `url('/DSC_6931.JPG')`,
+      opacity: 0.5
+    }}
+  />*/}
 
-          <div className="container mx-auto px-4 relative z-10">
-            <h2 className={`font-serif italic text-4xl md:text-6xl text-center text-dark-espresso mb-12 ${dressCodeVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              Código de Vestimenta
-            </h2>
+  <div className="container mx-auto px-4 relative z-10">
+    <h2 className={`font-serif italic text-4xl md:text-6xl text-center text-dark-espresso mb-12 ${dressCodeVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+      Código de Vestimenta
+    </h2>
 
-            <div className={`max-w-2xl mx-auto bg-white/20 backdrop-blur-sm shadow-2xl p-8 md:p-12 rounded-2xl ${dressCodeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
-              <div className="text-center space-y-6">
-                <div className={`text-2xl md:text-3xl font-semibold text-warm-taupe ${dressCodeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>
-                  Formal
-                </div>
+    <div className={`max-w-2xl mx-auto bg-white/20 backdrop-blur-sm shadow-2xl p-8 md:p-12 rounded-2xl ${dressCodeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
+      <div className="text-center space-y-6">
+        <div className={`text-2xl md:text-3xl font-semibold text-warm-taupe ${dressCodeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>
+          Formal
+        </div>
 
-                <div className={`text-lg text-dark-espresso ${dressCodeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>
-                </div>
+        <div className="my-8 flex justify-center">
+          <div className={`border-t-2 border-gray-sage ${dressCodeVisible ? 'animate-expand-width' : 'w-0'}`} />
+        </div>
 
-                <div className="my-8 flex justify-center">
-                  <div className={`border-t-2 border-gray-sage ${dressCodeVisible ? 'animate-expand-width' : 'w-0'}`} />
-                </div>
-                    /*
-                <div className="grid md:grid-cols-2 gap-6 text-left">
-                 <div className={`bg-cream-beige/20 rounded-xl p-6 ${dressCodeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}`}>
-                    {/*<h3 className="text-xl font-semibold text-dark-espresso mb-3">Para Ellas</h3>*/}
-                    <ul className="space-y-2 text-gray-sage">
-
-                    <li> </li>
-                    <li></li>
-
-                    </ul>
-                  </div>
-
-                  <div className={`bg-cream-beige/20 rounded-xl p-6 ${dressCodeVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}`}>
-                   {/* <h3 className="text-xl font-semibold text-dark-espresso mb-3">Para Ellos</h3>*/}
-                    <ul className="space-y-2 text-gray-sage">
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                    </ul>
-                  </div>
-                </div>
- 
-              </div>
-            </div>
-          </div>
-        </section>
+        <p className={`text-lg text-dark-espresso ${dressCodeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}`}>
+          Para acompañarnos en este día tan especial, les pedimos a nuestras invitadas evitar el color blanco y tonalidades similares o cercanas al blanco, reservadas para la novia.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       <section className="flex justify-center items-center py-8">
         <button
@@ -995,12 +966,12 @@ export default function App(): React.JSX.Element {
               <div className={`bg-white rounded-2xl shadow-xl p-8 md:p-12 ${giftsVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
                 <div className="space-y-6">
                   <p className={`text-lg md:text-xl text-dark-espresso ${giftsVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>
-                    Aunque parezca una frase hecha, de corazón creemos que tu presencia es nuestro mejor regalo
+                    Gracias a Dios, ya tenemos todo lo necesario para nuestro hogar.
                   </p>
 
                   <div className={`text-base md:text-lg text-gray-sage ${giftsVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}`}>
                     <p className="mb-4">
-                      Si aun así querés hacernos un presente podés transferir el monto que desees para nuestra luna de miel a la siguiente cuenta:
+                      Pero si aun asi deseas hacernos un obsequio, puedes hacerlo mediante una transferencia. Lo recibiremos con mucho cariño!
                     </p>
                   </div>
 
@@ -1011,14 +982,14 @@ export default function App(): React.JSX.Element {
                   <div className={`bg-cream-beige/20 rounded-xl p-6 ${giftsVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}`}>
                     <h3 className="text-xl font-semibold text-warm-taupe mb-3">Datos para transferencias</h3>
                     <p className="text-gray-sage">
-                      Alias: <span className="font-mono font-bold">Casamiento-flor-juan</span><br />
-                      CVU: <span className="font-mono font-bold">0000003100047474872326</span><br />
-                      Banco: <span className="font-mono font-bold">Mercado Pago</span><br />
-                      Titular: <span className="font-mono font-bold">Juan Cruz Mezzopeva</span>
+                      Alias: <span className="font-mono font-bold">BODA.FLOR.YOEL</span><br />
+                      CBU: <span className="font-mono font-bold">4530000800015854237742</span><br />
+                      Banco: <span className="font-mono font-bold">Naranja X</span><br />
+                      Titular: <span className="font-mono font-bold">Erick Yoel Calpanchay</span>
                     </p>
                   </div>
 
-                  <div className={`mt-8 ${giftsVisible ? 'animate-fade-in-button' : 'opacity-0'}`}>
+                {/*  <div className={`mt-8 ${giftsVisible ? 'animate-fade-in-button' : 'opacity-0'}`}>
                     <a
                       href="https://docs.google.com/document/d/1J_pUsa5ua8Zidid2AEv3gPAqq3zKy0vypBNAF58iTjk/edit?tab=t.0"
                       target="_blank"
@@ -1026,9 +997,9 @@ export default function App(): React.JSX.Element {
                       className="flex items-center justify-center gap-2 bg-warm-taupe hover:bg-dark-espresso text-white px-8 py-4 rounded-full text-lg font-medium transition-all hover:scale-105 shadow-lg w-full"
                     >
                       <Gift className="w-5 h-5" />
-                     {/* Ver Lista de Regalos*/}
+                      Ver Lista de Regalos
                     </a>
-                  </div>
+                  </div>*/}
                 </div>
               </div>
             </div>
@@ -1040,9 +1011,9 @@ export default function App(): React.JSX.Element {
         <footer className="bg-dark-espresso text-silver-mist py-8">
           <div className="container mx-auto px-4 text-center">
             <p className="flex items-center justify-center gap-2 mb-4">
-              2026 © Creado con <Heart className="w-5 h-5 text-warm-taupe fill-current" /> 
+              2026 © Creado con <Heart className="w-5 h-5 text-warm-taupe fill-current" /> para Flor & Yoel. 
             </p>
-            
+            {/*
             <div className="flex justify-center gap-6">
               <a
                 href="https://instagram.com/florenciamontes90"
@@ -1060,7 +1031,7 @@ export default function App(): React.JSX.Element {
               >
                 <Instagram className="w-8 h-8" />
               </a>
-            </div>
+            </div>*/}
           </div>
         </footer>
       </div>
