@@ -144,6 +144,26 @@ export default function App(): React.JSX.Element {
   // EFECTOS
   // ============================================
 
+  const [cierreVisible, setCierreVisible] = useState(false);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setCierreVisible(true);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  const element = document.getElementById('cierre');
+  if (element) observer.observe(element);
+
+  return () => observer.disconnect();
+}, []);
+
   // Countdown timer
   useEffect(() => {
     const updateCountdown = (): void => {
@@ -346,6 +366,26 @@ export default function App(): React.JSX.Element {
   // ============================================
   // FUNCIONES
   // ============================================
+
+  const [dividerVisible, setDividerVisible] = useState(false);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setDividerVisible(true);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  const element = document.getElementById('divider-flores');
+  if (element) observer.observe(element);
+
+  return () => observer.disconnect();
+}, []);
 
   const handleSplashClick = (): void => {
     setFadeOut(true);
@@ -611,61 +651,60 @@ export default function App(): React.JSX.Element {
   style={{ backgroundColor: 'rgb(251, 248, 242)' }}
 >
   <div className="container mx-auto px-4">
-    <div className="max-w-3xl mx-auto text-center text-dark-espresso space-y-4">
-      <p className="text-lg md:text-2xl font-serif">Queremos compartir con vos</p>
-      <p className="text-lg md:text-2xl font-serif">uno de los días más importantes de nuestras vidas.</p>
+    <div className="max-w-3xl mx-auto text-center text-dark-espresso space-y-4 font-['Lora']">
+      <p className="text-lg md:text-2xl">Queremos compartir con vos</p>
+      <p className="text-lg md:text-2xl">uno de los días más importantes de nuestras vidas.</p>
     </div>
   </div>
 </section>
         {/* Date & Time Section */}
-        <section
-          className="py-16 md:py-24 relative bg-cover bg-center bg-fixed overflow-hidden"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('DSC_6544.JPG')`
-          }}
-          id="date-time"
-          >
-          {/* Animación de parallax sutil en el fondo */}
-          <div
-            className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
-            style={{
-              backgroundImage: `url('DSC_605.JPG')`,
-              opacity: 0.6
-            }}
-          />
+<section
+  className="py-16 md:py-24 relative bg-cover bg-center bg-fixed overflow-hidden"
+  style={{
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('DSC_6544.JPG')`
+  }}
+  id="date-time"
+  >
+  {/* Animación de parallax sutil en el fondo */}
+  <div
+    className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
+    style={{
+      backgroundImage: `url('DSC_605.JPG')`,
+      opacity: 0.6
+    }}
+  />
 
-          <div className="container mx-auto px-4 relative z-10">
-            <h2 className={`font-serif italic text-4xl md:text-6xl text-center text-dark-espresso mb-12 ${dateTimeVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              Fecha y Hora
-            </h2>
+  <div className="container mx-auto px-4 relative z-10">
+    <h2 className={`font-serif italic text-4xl md:text-6xl text-center text-dark-espresso mb-12 ${dateTimeVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+      Fecha y Hora
+    </h2>
 
-            <div className={`max-w-2xl mx-auto bg-white/20 backdrop-blur-sm shadow-2xl p-8 md:p-12 rounded-2xl ${dateTimeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
-              <div className="text-center space-y-6">
-                <div className={`text-xl md:text-2xl text-dark-espresso ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>Sábado</div>
-                <div className={`text-6xl md:text-8xl font-bold text-warm-taupe ${dateTimeVisible ? 'animate-scale-in-content' : 'opacity-0'}`}>06</div>
-                <div className={`text-xl md:text-2xl text-dark-espresso ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>Febrero 2027</div>
+    <div className={`max-w-2xl mx-auto bg-white/20 backdrop-blur-sm shadow-2xl p-8 md:p-12 rounded-2xl ${dateTimeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
+      <div className="text-center space-y-6">
+        <div className={`font-serif text-xl md:text-2xl text-dark-espresso font-semibold  ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>SÁBADO</div>
+        <div className={`text-6xl md:text-8xl font-bold text-warm-taupe ${dateTimeVisible ? 'animate-scale-in-content' : 'opacity-0'}`}>06</div>
+        <div className={`text-xl md:text-2xl text-dark-espresso  ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>Febrero 2027</div>
 
-                <div className="my-8 flex justify-center">
-                  <div className={`border-t-2 border-gray-sage ${dateTimeVisible ? 'animate-expand-width' : 'w-0'}`} />
-                </div>
+        <div className="my-8 flex justify-center">
+          <div className={`border-t-2 border-gray-sage ${dateTimeVisible ? 'animate-expand-width' : 'w-0'}`} />
+        </div>
 
-                <div className="space-y-6">
-                  <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
-                  <p className="font-semibold text-dark-espresso mb-2">Recepción:</p>
-                  <p className="text-3xl md:text-4xl text-warm-taupe">18:30<span className='text-xl'></span></p>
-                  </div>
-                  
-                  <div className={dateTimeVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}>
-                  <p className="font-semibold text-dark-espresso mb-2">Ceremonia y celebración:</p>
-                    <p className="text-3xl md:text-4xl text-warm-taupe">19:00 - 01:00 <span className='text-xl'> </span></p>
-                  </div>
-                </div>
-                <div className='text'>La ceremonia comienza a la hora pactada, así que se ruega puntualidad.</div>
-              </div>
-            </div>
+        <div className="space-y-6">
+          <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
+          <p className="font-serif font-semibold text-dark-espresso mb-2">Recepción:</p>
+          <p className="text-3xl md:text-4xl text-warm-taupe">18:30<span className='text-xl'></span></p>
           </div>
-        </section>
-
+          
+          <div className={dateTimeVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}>
+          <p className="font-serif font-semibold text-dark-espresso mb-2">Ceremonia y celebración:</p>
+            <p className="text-3xl md:text-4xl text-warm-taupe">19:00 - 01:00 <span className='text-xl'> </span></p>
+          </div>
+        </div>
+        <div className='font-serif text'>¡Vení temprano! El horario del civil es estricto e improrrogable.</div>
+      </div>
+    </div>
+  </div>
+</section>
         {/* Invitation Text 
         
        
@@ -677,21 +716,23 @@ Hoy, unidos por el amor y guiados por la fe, elegimos comenzar juntos una nueva 
 Con mucha alegría, queremos celebrar este día junto a quienes amamos y son parte de nuestra historia.
         
         */}
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center text-dark-espresso space-y-4">
-            <p className="font-serif italic text-lg md:text-2xl"> “Sobre todo revístanse de amor, que es el lazo de la perfecta unión.”
-Colosenses 3:14</p>
-              <p className="text-lg  md:text-2xl font-family-sans">De norte a sur, Dios trazó nuestros caminos hasta hacerlos coincidir en el centro del país.</p>
-                   <p className="text-lg  md:text-2xl font-family-sans">Hoy, unidos por el amor y guiados por la fe, elegimos comenzar juntos una nueva etapa y compartir la vida que Dios nos permitió encontrar el uno en el otro.</p>
-              <p className="text-lg  md:text-2xl font-family-sans">Con mucha alegría, queremos celebrar este día junto a quienes amamos y son parte de nuestra historia.</p>
-             {/*      <p className="text-lg  md:text-2xl font-family-sans">Con amor y fe, decidimos dar este gran paso
-                    y celebrarlo con quienes son parte de nuestra historia.</p>
-              <p className="text-lg  md:text-2xl font-family-sans">¡Te esperamos para compartir juntos este nuevo comienzo!</p>*/}
-            </div>
-          </div>
-        </section>
-
+       <section
+  className="py-16 md:py-24"
+  style={{ backgroundColor: 'rgb(251, 248, 242)' }}
+>
+  <div className="container mx-auto px-4">
+    <div className="max-w-3xl mx-auto text-center text-dark-espresso space-y-4">
+     <p className="font-serif italic text-xl md:text-3xl">
+  “Sobre todo revístanse de amor, que es el lazo de la perfecta unión.”
+  Colosenses 3:14
+</p>
+  <br></br>
+   <p className="text-base md:text-xl  font-['Lora'] ">De norte a sur, Dios trazó nuestros caminos hasta hacerlos coincidir en el centro del país.</p>
+<p className="text-base md:text-xl  font-['Lora'] ">Hoy, unidos por el amor y guiados por la fe, elegimos comenzar juntos una nueva etapa y compartir la vida que Dios nos permitió encontrar el uno en el otro.</p>
+<p className="text-base md:text-xl  font-['Lora'] ">Con mucha alegría, queremos celebrar este día junto a quienes amamos y son parte de nuestra historia.</p>
+    </div>
+  </div>
+</section>
 
         {/* Location Section */}
         <section
@@ -701,14 +742,15 @@ Colosenses 3:14</p>
           }}
           id="date-time"
           >
-          {/* Animación de parallax sutil en el fondo 
+         
+        {/* Animación de parallax sutil en el fondo */}
           <div
             className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
             style={{
-              backgroundImage: `url('/ful-screen-ubicacion.webp')`,
+              backgroundImage: `, url('DSC_6626.JPG')`,
               opacity: 0.7
             }}
-          />*/}
+          />
 
           <div className="container mx-auto px-4 relative z-10">
             <h2 className={`font-serif italic text-4xl md:text-6xl text-center text-dark-espresso mb-12 ${dateTimeVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -730,7 +772,7 @@ Colosenses 3:14</p>
 
                 <div className="space-y-6">
                   <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
-                <p className="text-center text-gray-sage mb-8">
+                <p className="text-center text-gray-sage mb-8 font-['Lora']  ">
                 Autopista 19 km 7 (Altura Fábrica Bimbo)<br />
                 Córdoba, Argentina 
               </p>
@@ -766,7 +808,8 @@ Colosenses 3:14</p>
 
 
                 {/* Price Section  */}
-        <section className="py-16 md:py-24" id="prices-section">
+        <section className="py-16 md:py-24" id="prices-section" 
+  style={{ backgroundColor: 'rgb(251, 248, 242)' }}>
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <Wallet className={`w-12 h-12 mx-auto text-warm-taupe mb-4 ${pricesVisible ? 'animate-fade-in' : 'opacity-0'}`} />
@@ -779,37 +822,37 @@ Colosenses 3:14</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
                   {/* Lista de precios para Adultos */}
                   <div>
-                    <p className="text-lg font-medium text-dark-espresso mb-4">Adultos</p>
+                    <p className="text-lg font-medium text-dark-espresso mb-4 font-serif">Adultos</p>
                     <ul className="text-gray-sage text-lg">
-                      <li className="mb-4">Septiembre 2026 - Diciembre 2026: $100.000</li>
-                      <li className="mb-4">Enero 2027: $115.000</li>
+                      <li className="mb-4 font-serif">Septiembre 2026 - Diciembre 2026: $100.000</li>
+                      <li className="mb-4 font-serif">Enero 2027: $115.000</li>
                     </ul>
                   </div>
 
                   {/* Lista de precios para Menores */}
                   <div>
-                    <p className="text-lg font-medium text-dark-espresso mb-4">Menores de 3 a 10 años</p>
+                    <p className="text-lg font-medium text-dark-espresso mb-4 font-serif">Menores de 3 a 10 años</p>
                     <ul className="text-gray-sage text-lg">
-                      <li className="mb-4">Septiembre 2026 - Diciembre 2026: $40.000</li>
-                      <li className="mb-4">Enero 2027: $45.000</li>
+                      <li className="mb-4 font-serif">Septiembre 2026 - Diciembre 2026: $40.000</li>
+                      <li className="mb-4 font-serif">Enero 2027: $45.000</li>
                     </ul>
                   </div>
                 </div>
 
                 {/* Texto aclaratorio */}
                 <div className="text-center mb-8">
-                <p className="text-sm text-gray-sage italic">El valor de la tarjeta varía según el mes en el que se realice el pago</p>
-                <p className="text-sm text-gray-sage italic">* Menores de 3 años no pagan tarjeta</p>
+                <p className="text-sm text-gray-sage italic font-serif">El valor de la tarjeta varía según el mes en el que se realice el pago</p>
+                <p className="text-sm text-gray-sage italic font-serif">* Menores de 3 años no pagan tarjeta</p>
                   </div>
 
                 <div className="space-y-6">
                   <div className="bg-cream-beige/20 rounded-xl p-6">
-                    <h3 className="text-xl font-semibold text-warm-taupe mb-3">Datos para el pago</h3>
+                    <h3 className="text-xl font-semibold text-warm-taupe mb-3 font-serif">Datos para el pago</h3>
                     <p className="text-gray-sage">
-                      Alias: <span className="font-mono font-bold">BODA.FLOR.YOEL</span><br />
-                      CBU: <span className="font-mono font-bold">4530000800015854237742</span><br />
-                      Banco: <span className="font-mono font-bold">Naranja X</span><br />
-                      Titular: <span className="font-mono font-bold">Erick Yoel Calpanchay</span><br /><br />
+                      Alias: <span className="font-mono font-serif">BODA.FLOR.YOEL</span><br />
+                      CBU: <span className="font-mono ">4530000800015854237742</span><br />
+                      Banco: <span className="font-mono font-serif">Naranja X</span><br />
+                      Titular: <span className="font-mono font-serif">Erick Yoel Calpanchay</span><br /><br />
 
                       Por favor, verificar los datos antes de realizar la transferencia.
                       
@@ -829,7 +872,7 @@ Colosenses 3:14</p>
         {/* Photo Gallery Section - Carousel */}
         <section
           className="py-8 md:py-16"
-          id="photo-gallery"
+          id="photo-gallery" style={{ backgroundColor: 'rgb(251, 248, 242)' }}
         >
           <div className="w-full">
             <div className="text-center mb-8 md:mb-12 px-4">
@@ -909,7 +952,7 @@ Colosenses 3:14</p>
 <section
   className="py-16 md:py-24 relative bg-cover bg-center bg-fixed overflow-hidden"
   style={{
-    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),  url('/DSC_6931.JPG')`
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),  url('/DSC_6077.JPG')`
   }}
   id="dress-code"
 >
@@ -938,24 +981,16 @@ Colosenses 3:14</p>
         </div>
 
         <p className={`text-lg text-dark-espresso ${dressCodeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}`}>
-          Para acompañarnos en este día tan especial, les pedimos a nuestras invitadas evitar el color blanco y tonalidades similares o cercanas al blanco, reservadas para la novia.
+         Para acompañarnos en este día tan especial, únicamente les pedimos a nuestras invitadas evitar el color blanco o tonalidades similares, reservadas para la novia.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-      <section className="flex justify-center items-center py-8">
-        <button
-          onClick={openRSVPModal}
-          className="group relative inline-flex items-center justify-center gap-3 bg-warm-taupe hover:bg-dark-espresso text-white px-12 py-5 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-gray/50"
-        >
-          Confirma acá tu asistencia
-        </button>
-      </section>
-
+    
         {/* Gifts Section */}
-        <section className="py-16 md:py-24" id="gifts-section">
+        <section className="py-16 md:py-24" id="gifts-section" style={{ backgroundColor: 'rgb(251, 248, 242)' }}>
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <Gift className={`w-12 h-12 mx-auto text-warm-taupe mb-4 ${giftsVisible ? 'animate-fade-in' : 'opacity-0'}`} />
@@ -1005,7 +1040,59 @@ Colosenses 3:14</p>
             </div>
           </div>
         </section>
+        {/* Separador decorativo floral */}
+{/* Separador decorativo floral */}
+<div
+  id="divider-flores"
+  className="flex justify-center py-6 md:py-10"
+  style={{ backgroundColor: 'rgb(251, 248, 242)' }}
+>
+  <img
+    src="/jeje.png"
+    alt=""
+    className={`w-80 md:w-[32rem] max-w-full transition-all duration-1000 ease-out ${
+      dividerVisible ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-6'
+    }`}
+  />
+</div>
+                  {/* Cierre - Te esperamos */}
+<section
+  className="pt-8 pb-16 md:pt-12 md:pb-24"
+  style={{ backgroundColor: 'rgb(251, 248, 242)'}}
+  id="cierre"
+>
+  <div className="container mx-auto px-4">
+    <div className="max-w-3xl mx-auto text-center space-y-10">
 
+      <div className={`text-lg md:text-2xl text-dark-espresso ${cierreVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>
+        <p>Podés confirmar asistencia</p>
+        <p>hasta el 15 de Diciembre.</p>
+      </div>
+                <section className="flex justify-center items-center py-8">
+        <button
+          onClick={openRSVPModal}
+          className="group relative inline-flex items-center justify-center gap-3 bg-warm-taupe hover:bg-dark-espresso text-white px-12 py-5 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-gray/50"
+        >
+          Confirma acá tu asistencia
+        </button>
+      </section>
+
+      <div className="my-8 flex justify-center">
+        <div className={`border-t-2 border-gray-sage ${cierreVisible ? 'animate-expand-width' : 'w-0'}`} />
+      </div>
+
+    <div>
+  <p className="font-serif italic text-4xl md:text-6xl mb-4">
+    ¡Te esperamos!
+  </p>
+  <p className="font-serif italic text-4xl md:text-6xl mb-4">
+    {novios}
+  </p>
+</div>
+
+    </div>
+  </div>
+</section>
         {/* Footer */}
         
         <footer className="bg-dark-espresso text-silver-mist py-8">
@@ -1040,8 +1127,8 @@ Colosenses 3:14</p>
       {/* MODAL RSVP */}
       {/* ============================================ */}
       {showRSVPModal && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 animate-fade-in">
+          <div className="bg-white rounded-2xl  max-w-3xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
             {/* Header del Modal */}
             <div className="sticky top-0 bg-gradient-to-r from-warm-taupe to-dark-espresso text-white p-6 rounded-t-2xl flex justify-between items-center">
               <h2 className="font-serif italic text-3xl md:text-4xl">Confirmación de Asistencia</h2>
