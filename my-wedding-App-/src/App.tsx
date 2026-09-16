@@ -1,6 +1,6 @@
 import React, { useState, useEffect, type ChangeEvent, type FormEvent } from 'react';
 import { Calendar, MapPin, Heart, Instagram, Send, CheckCircle, AlertCircle, X, Gift, Camera, Wallet, Section } from 'lucide-react';
-
+import { Phone } from 'lucide-react';
 // ============================================
 // TIPOS E INTERFACES
 // ============================================
@@ -616,7 +616,7 @@ useEffect(() => {
      {novios}
     </div>
 
-    <p className="text-xl md:text-2xl mb-2"> Sábado 06 de Febrero 2027</p>
+    <p className= "font-['Lora'] text-xl md:text-2xl mb-2" > Sábado 06 de Febrero 2027</p>
     <p className="text-lg md:text-xl mb-12"></p>
 
     {/* Countdown */}
@@ -636,7 +636,7 @@ useEffect(() => {
       onClick={openRSVPModal}
       className="group relative inline-flex items-center justify-center gap-3 bg-warm-taupe hover:bg-dark-espresso text-white px-12 py-5 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-gray/50"
     >
-      Confirma acá tu asistencia
+      Confirmá acá tu asistencia
     </button>
   </div>
 </section>
@@ -681,9 +681,9 @@ useEffect(() => {
 
     <div className={`max-w-2xl mx-auto bg-white/20 backdrop-blur-sm shadow-2xl p-8 md:p-12 rounded-2xl ${dateTimeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
       <div className="text-center space-y-6">
-        <div className={`font-serif text-xl md:text-2xl text-dark-espresso font-semibold  ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>SÁBADO</div>
-        <div className={`text-6xl md:text-8xl font-bold text-warm-taupe ${dateTimeVisible ? 'animate-scale-in-content' : 'opacity-0'}`}>06</div>
-        <div className={`text-xl md:text-2xl text-dark-espresso  ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>Febrero 2027</div>
+        <div className={`font-['Lora'] text-xl md:text-2xl text-dark-espresso font-semibold  ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>SÁBADO</div>
+        <div className={`font-['Lora'] text-6xl md:text-8xl font-bold text-warm-taupe ${dateTimeVisible ? 'animate-scale-in-content' : 'opacity-0'}`}>06</div>
+        <div className={`font-['Lora'] text-xl md:text-2xl text-dark-espresso font-semibold  ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>Febrero 2027</div>
 
         <div className="my-8 flex justify-center">
           <div className={`border-t-2 border-gray-sage ${dateTimeVisible ? 'animate-expand-width' : 'w-0'}`} />
@@ -691,17 +691,27 @@ useEffect(() => {
 
         <div className="space-y-6">
           <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
-          <p className="font-serif font-semibold text-dark-espresso mb-2">Recepción:</p>
-          <p className="text-3xl md:text-4xl text-warm-taupe">18:30<span className='text-xl'></span></p>
+          <p className="font-['Lora'] text-xl text-dark-espresso mb-2">Recepción:</p>
+          <p className="font-['Lora'] text-3xl md:text-4xl text-warm-taupe">18:30<span className='text-xl'></span></p>
           </div>
           
           <div className={dateTimeVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}>
-          <p className="font-serif font-semibold text-dark-espresso mb-2">Ceremonia y celebración:</p>
-            <p className="text-3xl md:text-4xl text-warm-taupe">19:00 - 01:00 <span className='text-xl'> </span></p>
+          <p className="font-['Lora'] text-xl text-dark-espresso mb-2">Ceremonia:</p>
+            <p className="font-['Lora'] text-3xl md:text-4xl text-warm-taupe">19:00 <span className='text-xl'></span></p>
           </div>
         </div>
-        <div className='font-serif text'>¡Vení temprano! El horario del civil es estricto e improrrogable.</div>
-      </div>
+
+        <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
+          <p className="font-['Lora'] text-xl text-dark-espresso mb-2">Cena:</p>
+          <p className="font-['Lora'] text-3xl md:text-4xl text-warm-taupe">20:30<span className='text-xl'></span></p>
+          </div>
+
+        <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
+          <p className="font-['Lora'] text-xl text-dark-espresso mb-2">Despedida:</p>
+          <p className="font-['Lora'] text-3xl md:text-4xl text-warm-taupe">01:00<span className='text-xl'></span></p>
+          </div>
+
+        <div className="font-['Lora'] italic text-dark-espresso mb-2">¡Vení temprano! El horario del civil es estricto e improrrogable.</div>      </div>
     </div>
   </div>
 </section>
@@ -760,8 +770,8 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
             <div className={`max-w-2xl mx-auto bg-white/40 backdrop-blur-sm shadow-2xl p-8 md:p-12 rounded-2xl ${dateTimeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
               <div className="text-center space-y-6">
                 <div className={`text-xl md:text-2xl text-dark-espresso ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}> 
-                <h3 className="text-2xl md:text-3xl font-semibold text-warm-taupe text-center mb-4">
-                Saint George Village
+                <h3 className="text-2xl md:text-3xl font-['Lora'] font-semibold text-warm-taupe text-center mb-4">
+                SAINT GEORGE VILLAGE
               </h3></div>
                 <div className={`text-6xl md:text-8xl font-bold text-warm-taupe ${dateTimeVisible ? 'animate-scale-in-content' : 'opacity-0'}`}> </div>
                 <div className={`text-xl md:text-2xl text-dark-espresso ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}> </div>
@@ -820,40 +830,42 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
               <div className={`bg-white rounded-2xl shadow-xl p-8 md:p-12 ${pricesVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
                 {/* Contenedor de las dos listas de precios */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
-                  {/* Lista de precios para Adultos */}
+                  {/* Lista de precios para s */}
                   <div>
-                    <p className="text-lg font-medium text-dark-espresso mb-4 font-serif">Adultos</p>
+                    <p className="text-2x1 font-semibold font-medium text-dark-espresso mb-4 font-serif">ADULTOS</p>
                     <ul className="text-gray-sage text-lg">
-                      <li className="mb-4 font-serif">Septiembre 2026 - Diciembre 2026: $100.000</li>
-                      <li className="mb-4 font-serif">Enero 2027: $115.000</li>
+                      <li className="mb-4 font-['Lora']">Septiembre 2026 - Octubre 2026: $105.000</li>
+                      <li className="mb-4 font-['Lora']">Noviembre 2026 - Diciembre 2026: $110.000</li>
+                      <li className="mb-4 font-['Lora']">Enero 2027: $120.000</li>
                     </ul>
                   </div>
 
                   {/* Lista de precios para Menores */}
                   <div>
-                    <p className="text-lg font-medium text-dark-espresso mb-4 font-serif">Menores de 3 a 10 años</p>
+                    <p className="text-2x1 font-semibold font-['Lora'] font-medium text-dark-espresso mb-4 font-serif">MENORES (3 A 10 AÑOS)</p>
                     <ul className="text-gray-sage text-lg">
-                      <li className="mb-4 font-serif">Septiembre 2026 - Diciembre 2026: $40.000</li>
-                      <li className="mb-4 font-serif">Enero 2027: $45.000</li>
+                      <li className="mb-4 font-serif">Septiembre 2026 - Octubre 2026: $55.000</li>
+                      <li className="mb-4 font-serif">Noviembre 2026 - Diciembre 2026: $58.000</li>
+                      <li className="mb-4 font-serif">Enero 2027: $62.000</li>
                     </ul>
                   </div>
                 </div>
 
-                {/* Texto aclaratorio */}
-                <div className="text-center mb-8">
-                <p className="text-sm text-gray-sage italic font-serif">El valor de la tarjeta varía según el mes en el que se realice el pago</p>
-                <p className="text-sm text-gray-sage italic font-serif">* Menores de 3 años no pagan tarjeta</p>
-                  </div>
+              
 
                 <div className="space-y-6">
                   <div className="bg-cream-beige/20 rounded-xl p-6">
-                    <h3 className="text-xl font-semibold text-warm-taupe mb-3 font-serif">Datos para el pago</h3>
+                    <h3 className="text-xl font-semibold text-warm-taupe mb-3 font-serif">Datos para las transferencias:</h3>
                     <p className="text-gray-sage">
-                      Alias: <span className="font-mono font-serif">BODA.FLOR.YOEL</span><br />
-                      CBU: <span className="font-mono ">4530000800015854237742</span><br />
-                      Banco: <span className="font-mono font-serif">Naranja X</span><br />
-                      Titular: <span className="font-mono font-serif">Erick Yoel Calpanchay</span><br /><br />
-
+                      
+                      <p className="font-['Lora'] "></p>
+ 
+                      <p className="text-gray-sage font-['Lora']">
+    <span>Alias:</span> <span className="font-bold">BODA.FLOR.YOEL</span><br />
+    <span>CBU:</span> <span className="font-bold">4530000800015854237742</span><br />
+    <span>Banco:</span> <span className="font-bold">Naranja X</span><br />
+    <span>Titular:</span> <span className="font-bold">Erick Yoel Calpanchay</span>
+  </p>        <br></br>
                       Por favor, verificar los datos antes de realizar la transferencia.
                       
                     </p>
@@ -950,7 +962,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
 
        {/* Dress Code Section */}
 <section
-  className="py-16 md:py-24 relative bg-cover bg-center bg-fixed overflow-hidden"
+  className="py-16 md:py-24 relative bg-cover bg-center overflow-hidden"
   style={{
     backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),  url('/DSC_6077.JPG')`
   }}
@@ -970,17 +982,17 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
       Código de Vestimenta
     </h2>
 
-    <div className={`max-w-2xl mx-auto bg-white/20 backdrop-blur-sm shadow-2xl p-8 md:p-12 rounded-2xl ${dressCodeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
+    <div className={`max-w-2xl mx-auto bg-white/30 backdrop-blur-sm shadow-2xl p-8 md:p-12 rounded-2xl ${dressCodeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
       <div className="text-center space-y-6">
-        <div className={`text-2xl md:text-3xl font-semibold text-warm-taupe ${dressCodeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>
-          Formal
+        <div className={`font-['Lora'] text-2xl md:text-3xl font-semibold text-warm-taupe ${dressCodeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}> Formal
+          
         </div>
 
         <div className="my-8 flex justify-center">
           <div className={`border-t-2 border-gray-sage ${dressCodeVisible ? 'animate-expand-width' : 'w-0'}`} />
         </div>
 
-        <p className={`text-lg text-dark-espresso ${dressCodeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}`}>
+        <p className={`font-['Lora'] text-lg text-dark-espresso ${dressCodeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}`}>
          Para acompañarnos en este día tan especial, únicamente les pedimos a nuestras invitadas evitar el color blanco o tonalidades similares, reservadas para la novia.
         </p>
       </div>
@@ -1000,11 +1012,11 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
 
               <div className={`bg-white rounded-2xl shadow-xl p-8 md:p-12 ${giftsVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
                 <div className="space-y-6">
-                  <p className={`text-lg md:text-xl text-dark-espresso ${giftsVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>
+                  <p className={` font-['Lora'] text-lg md:text-xl text-dark-espresso ${giftsVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>
                     Gracias a Dios, ya tenemos todo lo necesario para nuestro hogar.
                   </p>
 
-                  <div className={`text-base md:text-lg text-gray-sage ${giftsVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}`}>
+                  <div className={` font-['Lora'] text-base md:text-lg text-gray-sage ${giftsVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}`}>
                     <p className="mb-4">
                       Pero si aun asi deseas hacernos un obsequio, puedes hacerlo mediante una transferencia. Lo recibiremos con mucho cariño!
                     </p>
@@ -1014,15 +1026,15 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
                     <div className={`border-t-2 border-gray-sage ${giftsVisible ? 'animate-expand-width' : 'w-0'}`} />
                   </div>
 
-                  <div className={`bg-cream-beige/20 rounded-xl p-6 ${giftsVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}`}>
-                    <h3 className="text-xl font-semibold text-warm-taupe mb-3">Datos para transferencias</h3>
-                    <p className="text-gray-sage">
-                      Alias: <span className="font-mono font-bold">BODA.FLOR.YOEL</span><br />
-                      CBU: <span className="font-mono font-bold">4530000800015854237742</span><br />
-                      Banco: <span className="font-mono font-bold">Naranja X</span><br />
-                      Titular: <span className="font-mono font-bold">Erick Yoel Calpanchay</span>
-                    </p>
-                  </div>
+                <div className={`bg-cream-beige/20 rounded-xl p-6 ${giftsVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}`}>
+  <h3 className="font-['Lora'] text-xl font-semibold text-warm-taupe mb-3">Datos para transferencias</h3>
+  <p className="text-gray-sage font-['Lora']">
+    <span>Alias:</span> <span className="font-bold">BODA.FLOR.YOEL</span><br />
+    <span>CBU:</span> <span className="font-bold">4530000800015854237742</span><br />
+    <span>Banco:</span> <span className="font-bold">Naranja X</span><br />
+    <span>Titular:</span> <span className="font-bold">Erick Yoel Calpanchay</span>
+  </p>
+</div>
 
                 {/*  <div className={`mt-8 ${giftsVisible ? 'animate-fade-in-button' : 'opacity-0'}`}>
                     <a
@@ -1044,7 +1056,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
 {/* Separador decorativo floral */}
 <div
   id="divider-flores"
-  className="flex justify-center py-6 md:py-10"
+  className="flex justify-center pt-6 pb-0 md:pt-10 md:pb-0"
   style={{ backgroundColor: 'rgb(251, 248, 242)' }}
 >
   <img
@@ -1055,18 +1067,18 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
     }`}
   />
 </div>
-                  {/* Cierre - Te esperamos */}
+{/* Cierre - Te esperamos */}
 <section
-  className="pt-8 pb-16 md:pt-12 md:pb-24"
+  className="pt-0 pb-16 md:pt-0 md:pb-24"
   style={{ backgroundColor: 'rgb(251, 248, 242)'}}
   id="cierre"
 >
   <div className="container mx-auto px-4">
     <div className="max-w-3xl mx-auto text-center space-y-10">
 
-      <div className={`text-lg md:text-2xl text-dark-espresso ${cierreVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>
+      <div className={`text-lg font-['Lora'] md:text-2xl text-dark-espresso ${cierreVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>
         <p>Podés confirmar asistencia</p>
-        <p>hasta el 15 de Diciembre.</p>
+        <p>hasta el 15 de Enero.</p>
       </div>
                 <section className="flex justify-center items-center py-8">
         <button
@@ -1082,10 +1094,10 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
       </div>
 
     <div>
-  <p className="font-serif italic text-4xl md:text-6xl mb-4">
+  <p className="text-dark-espresso  font-serif italic text-4xl md:text-6xl mb-4">
     ¡Te esperamos!
   </p>
-  <p className="font-serif italic text-4xl md:text-6xl mb-4">
+  <p className="text-dark-espresso  font-serif italic text-4xl md:text-6xl mb-4">
     {novios}
   </p>
 </div>
@@ -1127,8 +1139,8 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
       {/* MODAL RSVP */}
       {/* ============================================ */}
       {showRSVPModal && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 animate-fade-in">
-          <div className="bg-white rounded-2xl  max-w-3xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
             {/* Header del Modal */}
             <div className="sticky top-0 bg-gradient-to-r from-warm-taupe to-dark-espresso text-white p-6 rounded-t-2xl flex justify-between items-center">
               <h2 className="font-serif italic text-3xl md:text-4xl">Confirmación de Asistencia</h2>
@@ -1145,7 +1157,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
               <div className="text-center text-dark-espresso space-y-4 mb-8">
                 
                 <p className="text-base md:text-lg leading-relaxed font-semibold text-warm-taupe">
-                  Por favor completa el siguiente formulario:
+                  Favor de completar el siguiente formulario:
                 </p>
               </div>
 
@@ -1154,7 +1166,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
                 {/* Nombre completo */}
                 <div>
                   <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-2">
-                    Nombre Completo *
+                    Nombres de asistentes*
                   </label>
                   <input
                     type="text"
@@ -1164,11 +1176,11 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
                     value={formData.nombre}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition placeholder:text-gray-400"
-                    placeholder="Tu nombre completo"
+                    placeholder="Nombre de cada uno de los asistentes"
                   />
                 </div>
 
-                {/* Email */}
+                {/* Email 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email *
@@ -1183,7 +1195,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition placeholder:text-gray-400"
                     placeholder="tu@email.com"
                   />
-                </div>
+                </div>*/}
 
                 {/* Teléfono */}
                 <div>
@@ -1219,7 +1231,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
                   </select>
                 </div>
 
-                {/* Número de acompañantes */}
+                {/* Número de acompañantes 
                 <div>
                   <label htmlFor="numeroAcompanantes" className="block text-sm font-medium text-gray-700 mb-2">
                     Número de acompañantes
@@ -1237,7 +1249,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
                     <option value="3">3 acompañantes</option>
                     <option value="4">4+ acompañantes</option>
                   </select>
-                </div>
+                </div>*/}
 
                 {/* Alergias */}
                 <div>
@@ -1267,11 +1279,11 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition text-gray-900"
                   >
-                    <option value="ninguna">Ninguna (como todo)</option>
+                    <option value="ninguna">Ninguna</option>
                     <option value="vegetariano">Vegetariano</option>
                     <option value="vegano">Vegano</option>
                     <option value="sinGluten">Sin gluten</option>
-                    <option value="otra">Otra (especifica en mensaje)</option>
+                    <option value="otra">Otra</option>
                   </select>
                 </div>
 
@@ -1316,9 +1328,13 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
 
               <div className="mt-8 p-4 bg-cream-beige/50 border-l-4 border-warm-taupe rounded">
                 <p className="text-sm text-dark-espresso">
-                  <strong>Nota:</strong>Les pedimos mandar el comprobante de pago de las invitaciones a nuestro WhatsApp para confirmar su asistencia.
+                  <strong>Nota:</strong> Les pedimos mandar el comprobante de pago de las invitaciones a nuestro WhatsApp para confirmar su asistencia.
                 </p>
-                <p className="text-xs text-gray-500 mt-2">*En el comprobante incluir el nombre del invitado WhatsApp 3574401483 (Juan)  3854486562 (Flor)</p>
+                
+              <p className="text-xs text-gray-500 mt-2 flex items-center justify-center gap-1">
+  <Phone className="w-3.5 h-3.5" />
+  En el comprobante incluir el nombre del invitado — WhatsApp: 2804218641 (Yoel) 3856216625 (Flor)
+</p>
               </div>
             </div>
           </div>
