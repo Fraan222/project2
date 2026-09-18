@@ -646,8 +646,7 @@ const handleSubmit = async (
 </section>
         {/* Date & Time Section */}
 <section
-  className="py-16 md:py-24 relative bg-cover bg-center bg-fixed overflow-hidden"
-  style={{
+  className="py-12 md:py-24 relative bg-cover bg-[position:40%_center] md:bg-center bg-scroll md:bg-fixed overflow-hidden"  style={{
     backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('DSC_6544.JPG')`
   }}
   id="date-time"
