@@ -1,6 +1,22 @@
-import React, { useState, useEffect, type ChangeEvent, type FormEvent } from 'react';
-import { Calendar, MapPin, Heart, Instagram, Send, CheckCircle, AlertCircle, X, Gift, Camera, Wallet, Section } from 'lucide-react';
-import { Phone } from 'lucide-react';
+import React, {
+  useState,
+  useEffect,
+  type ChangeEvent,
+  type FormEvent
+} from 'react';
+
+import {
+  MapPin,
+  Heart,
+  Send,
+  CheckCircle,
+  AlertCircle,
+  X,
+  Gift,
+  Camera,
+  Wallet,
+  Phone
+} from 'lucide-react';
 // ============================================
 // TIPOS E INTERFACES
 // ============================================
@@ -14,12 +30,10 @@ interface CountdownState {
 
 interface FormData {
   nombre: string;
-  email: string;
   telefono: string;
-  asistencia: 'si' | 'no' | 'talvez';
-  numeroAcompanantes: '0' | '1' | '2' | '3' | '4';
+  asistencia: string;
   alergias: string;
-  dietaEspecial: 'ninguna' | 'vegetariano' | 'vegano' | 'sinGluten' | 'otra';
+  dietaEspecial: string;
   mensaje: string;
 }
 
@@ -35,11 +49,6 @@ interface CountdownItem {
   label: string;
 }
 
-interface StoryItem {
-  title: string;
-  text: string;
-  image: string;
-}
 
 interface DataToSend extends FormData {
   fecha: string;
@@ -58,8 +67,6 @@ export default function App(): React.JSX.Element {
   // Estado para la pantalla de carga
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadingProgress, setLoadingProgress] = useState<number>(0);
-  const [splashImageLoaded, setSplashImageLoaded] = useState<boolean>(false);
-  const [videoLoaded, setVideoLoaded] = useState<boolean>(false);
 
   // Estado para la pantalla de bienvenida
   const [showSplash, setShowSplash] = useState<boolean>(true);
@@ -79,23 +86,24 @@ export default function App(): React.JSX.Element {
     seconds: 0
   });
 
-  const [formData, setFormData] = useState<FormData>({
-    nombre: '',
-    email: '',
-    telefono: '',
-    asistencia: 'si',
-    numeroAcompanantes: '0',
-    alergias: '',
-    dietaEspecial: 'ninguna',
-    mensaje: ''
-  });
-
+// Estado inicial alineado a tu setFormData
+const initialFormState: FormData = {
+  nombre: '',
+  telefono: '',
+  asistencia: 'si',
+  alergias: '',
+  dietaEspecial: 'ninguna',
+  mensaje: ''
+};
   const [formStatus, setFormStatus] = useState<FormStatus>({
     loading: false,
     success: false,
     error: false,
     message: ''
   });
+
+
+const [formData, setFormData] = useState<FormData>(initialFormState);
 
   // Estado para detectar el tamaño de pantalla
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
@@ -115,16 +123,20 @@ export default function App(): React.JSX.Element {
   // Estado para el carousel de fotos - Mobile
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
+
+  // Estado para la sección de fotos
+
+  const [photosVisible, setPhotosVisible] = useState(false);
+
   // ============================================
   // CONFIGURACIÓN
   // ============================================
 
-  const GOOGLE_SCRIPT_URL: string = 'https://script.google.com/macros/s/AKfycbyHVJ8yX7XIkdAFq-kEmRnQ6UEoHjwMn69r2elgWpzhNCrfltHYnGhaauXoQjy2_O6JEw/exec';
+ const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxuEjXo-X8AaB5apZ8OqekpveC0p75JM0yUbVgrjVvqiZT22a_FJrSXeZmgj-Xjb6VYTQ/exec';
   const weddingDate: Date = new Date(2027, 1, 6, 18, 30, 0);
 
   // URLs - Video local de la pareja
-  const VIDEO_URL: string = '/Floryjuan-Reel-optimizdo.mp4';
-  const VIDEO_BACKGROUND_IMAGE: string = isMobile ? '/abrazo-2do-outfit.webp' : '/hero-full-screen.webp';
+
 
   // Imágenes del carousel
   const carouselImages: string[] = [
@@ -307,62 +319,52 @@ useEffect(() => {
     return () => clearInterval(interval);
   }, [carouselImages.length]);
 
-  // Efecto para precargar recursos multimedia
-  useEffect(() => {
-    let resourcesLoaded = 0;
-    const totalResources = 2; // Imagen del splash + video
 
-    const updateProgress = () => {
-      resourcesLoaded++;
-      const progress = (resourcesLoaded / totalResources) * 100;
-      setLoadingProgress(progress);
+  // Intersection Observer para la sección de fotos
 
-      // Si todos los recursos están cargados, ocultar pantalla de carga
-      if (resourcesLoaded === totalResources) {
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 500); // Pequeño delay para suavizar la transición
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setPhotosVisible(true);
+        observer.disconnect();
       }
-    };
+    },
+    { threshold: 0.2 }
+  );
 
-    // Precargar imagen del splash screen
-    const splashImage = new Image();
-    splashImage.src = '/DSC_6050.JPG';
-    splashImage.onload = () => {
-      setSplashImageLoaded(true);
-      updateProgress();
-    };
-    splashImage.onerror = () => {
-      console.error('Error cargando imagen del splash');
-      setSplashImageLoaded(true);
-      updateProgress();
-    };
+  const section = document.getElementById('photos-section');
 
-    // Precargar video
-    const videoElement = document.createElement('video');
-    videoElement.src = VIDEO_URL;
-    videoElement.preload = 'auto';
+  if (section) {
+    observer.observe(section);
+  }
 
-    videoElement.addEventListener('loadeddata', () => {
-      setVideoLoaded(true);
-      updateProgress();
-    });
+  return () => observer.disconnect();
+}, []);
 
-    videoElement.addEventListener('error', () => {
-      console.error('Error cargando video');
-      setVideoLoaded(true);
-      updateProgress();
-    });
+  // Intersection para la imagen central
 
-    videoElement.load();
 
-    // Cleanup
-    return () => {
-      splashImage.onload = null;
-      splashImage.onerror = null;
-    };
-  }, [VIDEO_URL]);
+useEffect(() => {
+  const splashImage = new Image();
+  splashImage.src = '/DSC_6050.JPG';
 
+  const finishLoading = () => {
+    setLoadingProgress(100);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 300);
+  };
+
+  splashImage.onload = finishLoading;
+  splashImage.onerror = finishLoading;
+
+  return () => {
+    splashImage.onload = null;
+    splashImage.onerror = null;
+  };
+}, []);
   // ============================================
   // FUNCIONES
   // ============================================
@@ -417,93 +419,78 @@ useEffect(() => {
     }));
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
-    e.preventDefault();
 
-    if (!formData.nombre || !formData.email) {
-      setFormStatus({
-        loading: false,
-        success: false,
-        error: true,
-        message: 'Por favor completa al menos tu nombre y email'
-      });
-      return;
-    }
+const handleSubmit = async (
+  e: FormEvent<HTMLFormElement>
+): Promise<void> => {
+  e.preventDefault();
 
+  if (!formData.nombre.trim()) {
     setFormStatus({
-      loading: true,
+      loading: false,
       success: false,
-      error: false,
-      message: 'Enviando tu respuesta...'
+      error: true,
+      message: 'Por favor, completá los nombres de los asistentes.'
+    });
+    return;
+  }
+
+  setFormStatus({
+    loading: true,
+    success: false,
+    error: false,
+    message: 'Enviando tu respuesta...'
+  });
+
+  try {
+    const dataToSend: DataToSend = {
+      ...formData,
+      fecha: new Date().toLocaleString('es-AR', {
+        timeZone: 'America/Argentina/Buenos_Aires'
+      }),
+      timestamp: new Date().toISOString()
+    };
+
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
+      body: JSON.stringify(dataToSend)
     });
 
-    try {
-      const dataToSend: DataToSend = {
-        ...formData,
-        fecha: new Date().toLocaleString('es-AR', {
-          timeZone: 'America/Argentina/Buenos_Aires',
-          year: 'numeric',
-          month: '2-digit',
-          day: '2-digit',
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit'
-        }),
-        timestamp: new Date().toISOString()
-      };
+    setFormStatus({
+      loading: false,
+      success: true,
+      error: false,
+      message: '¡Gracias! Tu confirmación fue enviada exitosamente 🎉'
+    });
 
-      console.log('Enviando datos:', dataToSend);
+    setFormData(initialFormState);
 
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(dataToSend)
-      });
-
-      // Con mode: 'no-cors' no podemos leer la respuesta, pero si no hay error, asumimos que funcionó
-      console.log('Respuesta enviada correctamente');
-
-      setFormStatus({
-        loading: false,
-        success: true,
-        error: false,
-        message: '¡Gracias! Tu confirmación ha sido registrada exitosamente 🎉'
-      });
-
-      setFormData({
-        nombre: '',
-        email: '',
-        telefono: '',
-        asistencia: 'si',
-        numeroAcompanantes: '0',
-        alergias: '',
-        dietaEspecial: 'ninguna',
-        mensaje: ''
-      });
-
-      setTimeout(() => {
-        setFormStatus({
-          loading: false,
-          success: false,
-          error: false,
-          message: ''
-        });
-        closeRSVPModal();
-      }, 3000);
-
-    } catch (error) {
-      console.error('Error al enviar:', error);
+    setTimeout(() => {
       setFormStatus({
         loading: false,
         success: false,
-        error: true,
-        message: 'Hubo un error al enviar tu respuesta. Por favor intenta de nuevo.'
+        error: false,
+        message: ''
       });
-    }
-  };
+
+      closeRSVPModal();
+    }, 3000);
+
+  } catch (error) {
+    console.error('Error al enviar:', error);
+
+    setFormStatus({
+      loading: false,
+      success: false,
+      error: true,
+      message: 'No se pudo conectar con el formulario.'
+    });
+  }
+};
 
   // Datos del countdown
   const countdownItems: CountdownItem[] = [
@@ -1053,7 +1040,6 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
           </div>
         </section>
         {/* Separador decorativo floral */}
-{/* Separador decorativo floral */}
 <div
   id="divider-flores"
   className="flex justify-center pt-6 pb-0 md:pt-10 md:pb-0"
@@ -1067,6 +1053,84 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
     }`}
   />
 </div>
+
+
+    {/* Compartí tus Fotos */}
+<section
+  id="photos-section"
+  className="py-16 md:py-24 font-['Lora']"
+  style={{ backgroundColor: 'rgb(251, 248, 242)' }}
+>
+  <div className="container mx-auto px-4">
+    <div className="max-w-3xl mx-auto text-center">
+      <Camera
+        className={`w-12 h-12 mx-auto mb-5 text-warm-taupe ${
+          photosVisible ? 'animate-fade-in' : 'opacity-0'
+        }`}
+      />
+
+      <h2
+        className={`font-serif italic text-4xl md:text-6xl text-dark-espresso mb-10 ${
+          photosVisible ? 'animate-fade-in-up' : 'opacity-0'
+        }`}
+      >
+        Compartí tus Fotos
+      </h2>
+
+      <div
+        className={`bg-white rounded-2xl shadow-xl p-8 md:p-12 ${
+          photosVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'
+        }`}
+      >
+        <p className="text-xl md:text-2xl text-dark-espresso mb-8">
+          Queremos que seas parte de nuestros recuerdos
+        </p>
+
+        <p className="text-base md:text-lg leading-relaxed text-gray-sage max-w-2xl mx-auto">
+          Subí tus fotos y videos del casamiento para que podamos revivirlos
+          juntos. Podés acceder a la carpeta compartida de Google Drive o subirlos
+          directamente desde acá.
+        </p>
+
+        <div className="my-8 flex justify-center">
+          <div className="w-2/3 border-t-2 border-gray-sage" />
+        </div>
+
+        <a
+          href="https://drive.google.com/drive/folders/14iE95CFJ0oQY8LJUZPelQ4PyZeasqv5Z"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full max-w-lg mx-auto flex items-center justify-center gap-2 bg-warm-taupe hover:bg-dark-espresso text-white px-8 py-4 rounded-full text-lg font-medium transition-all hover:scale-105 shadow-lg"
+        >
+          <Camera className="w-5 h-5" />
+          Ver Carpeta de Drive
+        </a>
+
+        <label
+          htmlFor="fotos-videos"
+          className="w-full max-w-lg mx-auto mt-6 flex items-center justify-center gap-2 border-2 border-warm-taupe text-dark-espresso px-8 py-4 rounded-full text-lg font-medium cursor-pointer transition-all hover:bg-cream-beige hover:scale-105"
+        >
+          <Camera className="w-5 h-5" />
+          Seleccionar Fotos/Videos
+        </label>
+
+        <input
+          id="fotos-videos"
+          type="file"
+          accept="image/jpeg,image/png,video/mp4,video/quicktime"
+          multiple
+          className="hidden"
+        />
+
+        <div className="max-w-lg mx-auto mt-8 rounded-xl bg-cream-beige/50 p-5 text-dark-espresso text-base">
+          <p>Formatos aceptados: JPG, PNG, MP4, MOV</p>
+          <p className="mt-1">Tamaño máximo por archivo: 100 MB</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 {/* Cierre - Te esperamos */}
 <section
   className="pt-0 pb-16 md:pt-0 md:pb-24"
@@ -1112,25 +1176,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
             <p className="flex items-center justify-center gap-2 mb-4">
               2026 © Creado con <Heart className="w-5 h-5 text-warm-taupe fill-current" /> para Flor & Yoel. 
             </p>
-            {/*
-            <div className="flex justify-center gap-6">
-              <a
-                href="https://instagram.com/florenciamontes90"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-warm-taupe hover:text-cream-beige transition-all hover:scale-110"
-              >
-                <Instagram className="w-8 h-8" />
-              </a>
-              <a
-                href="https://instagram.com/juan_cruz_mezzopeva"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-warm-taupe hover:text-cream-beige transition-all hover:scale-110"
-              >
-                <Instagram className="w-8 h-8" />
-              </a>
-            </div>*/}
+
           </div>
         </footer>
       </div>
@@ -1176,7 +1222,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
                     value={formData.nombre}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition placeholder:text-gray-400"
-                    placeholder="Nombre de cada uno de los asistentes"
+                    placeholder="Juan Pérez, María Gómez, Pedro López"
                   />
                 </div>
 
