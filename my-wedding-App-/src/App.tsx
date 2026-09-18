@@ -559,13 +559,13 @@ const handleSubmit = async (
             <h1 className="font-serif italic text-5xl md:text-7xl text-cream-beige mb-6">
                {novios}
             </h1>
-            <p className="text-xl md:text-2xl text-white mb-8">
+            <p className=" font-['Lora'] text-xl md:text-2xl text-white mb-8">
               Nos casamos
             </p>
-            <p className="text-lg md:text-xl text-silver-mist mb-12">
+            <p className=" font-['Lora'] text-lg md:text-xl text-silver-mist mb-12">
               6 de Febrero, 2027
             </p>
-            <p className="text-sm md:text-base text-silver-mist animate-bounce">
+            <p className="font-['Lora'] text-sm md:text-base text-silver-mist animate-bounce">
               Toca para continuar
             </p>
           </div>
@@ -619,14 +619,16 @@ const handleSubmit = async (
     </div>
 
     {/* Botón RSVP Principal */}
-    <button
+       <button
       onClick={openRSVPModal}
-      className="group relative inline-flex items-center justify-center gap-3 bg-warm-taupe hover:bg-dark-espresso text-white px-12 py-5 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-gray/50"
+      className="group relative inline-flex items-center justify-center gap-3 bg-warm-taupe hover:bg-dark-espresso text-white px-12 py-5 rounded-full text-xl !font-['Lora'] transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-gray/50"
     >
       Confirmá acá tu asistencia
     </button>
+
   </div>
 </section>
+
         {/* ============================================ */}
         {/* SECCIONES ADICIONALES */}
         {/* ============================================ */}
@@ -792,9 +794,9 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
                 href="https://maps.app.goo.gl/m7X3zUsHA4Qv4tZr9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-warm-taupe hover:bg-dark-espresso text-white px-8 py-4 rounded-full text-lg font-medium transition-all hover:scale-105 shadow-lg w-full"
+                className="font-['Lora'] flex items-center justify-center gap-2 bg-warm-taupe hover:bg-dark-espresso text-white px-8 py-4 rounded-full text-lg font-medium transition-all hover:scale-105 shadow-lg w-full"
               >
-                <MapPin className="w-5 h-5" />
+                <MapPin className="w-5 h-5 " />
                 Abrir en Google Maps
               </a>
               </div>
@@ -852,7 +854,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
     <span>Banco:</span> <span className="font-bold">Naranja X</span><br />
     <span>Titular:</span> <span className="font-bold">Erick Yoel Calpanchay</span>
   </p>        <br></br>
-                      Por favor, verificar los datos antes de realizar la transferencia.
+                     <span className="font-['Lora']"> Por favor, verificar los datos antes de realizar la transferencia.</span>
                       
                     </p>
                   </div>
@@ -877,7 +879,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
               <h2 className="font-serif italic text-3xl md:text-5xl text-dark-espresso mb-4">
                   Un nuevo capítulo comienza.
               </h2>
-              <p className="text-gray-sage text-lg">sé testigo del inicio de nuestro viaje</p>
+              <p className="font-['Lora'] text-gray-sage text-lg">sé testigo del inicio de nuestro viaje</p>
             </div>
 
             {/* Carousel Container - Mobile: 1 image, Desktop: infinite loop */}
@@ -1127,13 +1129,19 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
         <p>hasta el 15 de Enero.</p>
       </div>
                 <section className="flex justify-center items-center py-8">
+
+
         <button
-          onClick={openRSVPModal}
-          className="group relative inline-flex items-center justify-center gap-3 bg-warm-taupe hover:bg-dark-espresso text-white px-12 py-5 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-gray/50"
-        >
-          Confirma acá tu asistencia
-        </button>
+  onClick={openRSVPModal}
+  className="w-full max-w-lg mx-auto flex items-center justify-center gap-2 bg-warm-taupe hover:bg-dark-espresso text-white px-8 py-4 rounded-full text-lg transition-all hover:scale-105 shadow-lg"
+  style={{ fontFamily: "'Lora', serif" }}
+>
+  Confirmá acá tu asistencia
+</button>
+
       </section>
+
+      
 
       <div className="my-8 flex justify-center">
         <div className={`border-t-2 border-gray-sage ${cierreVisible ? 'animate-expand-width' : 'w-0'}`} />
