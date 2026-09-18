@@ -1055,7 +1055,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
 </div>
 
 
-    {/* Compartí tus Fotos */}
+  {/* Compartí tus Fotos */}
 <section
   id="photos-section"
   className="py-16 md:py-24 font-['Lora']"
@@ -1087,9 +1087,8 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
         </p>
 
         <p className="text-base md:text-lg leading-relaxed text-gray-sage max-w-2xl mx-auto">
-          Subí tus fotos y videos del casamiento para que podamos revivirlos
-          juntos. Podés acceder a la carpeta compartida de Google Drive o subirlos
-          directamente desde acá.
+          Subí tus fotos y videos del casamiento a nuestra carpeta compartida
+          para que podamos revivirlos juntos.
         </p>
 
         <div className="my-8 flex justify-center">
@@ -1103,24 +1102,8 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
           className="w-full max-w-lg mx-auto flex items-center justify-center gap-2 bg-warm-taupe hover:bg-dark-espresso text-white px-8 py-4 rounded-full text-lg font-medium transition-all hover:scale-105 shadow-lg"
         >
           <Camera className="w-5 h-5" />
-          Ver Carpeta de Drive
+          Abrir Carpeta de Drive
         </a>
-
-        <label
-          htmlFor="fotos-videos"
-          className="w-full max-w-lg mx-auto mt-6 flex items-center justify-center gap-2 border-2 border-warm-taupe text-dark-espresso px-8 py-4 rounded-full text-lg font-medium cursor-pointer transition-all hover:bg-cream-beige hover:scale-105"
-        >
-          <Camera className="w-5 h-5" />
-          Seleccionar Fotos/Videos
-        </label>
-
-        <input
-          id="fotos-videos"
-          type="file"
-          accept="image/jpeg,image/png,video/mp4,video/quicktime"
-          multiple
-          className="hidden"
-        />
 
         <div className="max-w-lg mx-auto mt-8 rounded-xl bg-cream-beige/50 p-5 text-dark-espresso text-base">
           <p>Formatos aceptados: JPG, PNG, MP4, MOV</p>
