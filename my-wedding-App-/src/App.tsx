@@ -1306,25 +1306,32 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
             />
           </div>
 
-          {/* Dieta especial */}
-          <div>
-            <label htmlFor="dietaEspecial" className="block text-sm font-medium text-gray-700 mb-2">
-              Preferencia alimentaria
-            </label>
-            <select
-              id="dietaEspecial"
-              name="dietaEspecial"
-              value={formData.dietaEspecial}
-              onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition text-gray-900 bg-white"
-            >
-              <option value="ninguna">Ninguna</option>
-              <option value="vegetariano">Vegetariano</option>
-              <option value="vegano">Vegano</option>
-              <option value="sinGluten">Sin gluten</option>
-              <option value="otra">Otra</option>
-            </select>
-          </div>
+         {/* Dieta especial */}
+<div>
+  <label htmlFor="dietaEspecial" className="block text-sm font-medium text-gray-700 mb-2">
+    Preferencia alimentaria
+  </label>
+  <select
+    id="dietaEspecial"
+    name="dietaEspecial"
+    value={formData.dietaEspecial}
+    onChange={handleInputChange}
+    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition text-gray-900 bg-white"
+  >
+    <option value="ninguna">Ninguna</option>
+    <option value="vegetariano">Vegetariano</option>
+    <option value="vegano">Vegano</option>
+    <option value="sinGluten">Sin Gluten (celíaco)</option>
+    <option value="sinLactosa">Sin Lactosa</option>
+    <option value="sinAzucar">Sin Azúcar / Diabético</option>
+    <option value="kosher">Kosher</option>
+    <option value="halal">Halal</option>
+    <option value="bajoEnSal">Bajo en Sal / Hipertenso</option>
+    <option value="paleo">Paleo</option>
+    <option value="pescetariano">Pescetariano</option>
+    <option value="otra">Otra</option>
+  </select>
+</div>
 
           {/* Estado del formulario */}
           {formStatus.message && (
