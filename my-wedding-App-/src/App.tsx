@@ -887,7 +887,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
               <h2 className="font-serif italic text-3xl md:text-5xl text-dark-espresso mb-4">
                   Un nuevo capítulo comienza.
               </h2>
-              <p className="font-['Lora'] text-gray-sage text-lg">sé testigo del inicio de nuestro viaje</p>
+              <p className="font-['Lora'] text-gray-sage text-lg">Sé testigo del inicio de nuestro viaje</p>
             </div>
 
             {/* Carousel Container - Mobile: 1 image, Desktop: infinite loop */}
