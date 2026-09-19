@@ -72,9 +72,6 @@ export default function App(): React.JSX.Element {
   const [showSplash, setShowSplash] = useState<boolean>(true);
   const [fadeOut, setFadeOut] = useState<boolean>(false);
 
-  // Estado para el video
-  const [playVideo, setPlayVideo] = useState<boolean>(false);
-  const [videoEnded, setVideoEnded] = useState<boolean>(false);
 
   // Estado para el modal del formulario RSVP
   const [showRSVPModal, setShowRSVPModal] = useState<boolean>(false);
@@ -646,19 +643,24 @@ const handleSubmit = async (
     </div>
   </div>
 </section>
-        {/* Date & Time Section */}
+       {/* Date & Time Section */}
 <section
-  className="py-12 md:py-24 relative bg-cover bg-[position:40%_center] md:bg-center bg-scroll md:bg-fixed overflow-hidden"  style={{
-    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('DSC_6544.JPG')`
-  }}
+  className="py-12 md:py-24 relative overflow-hidden"
   id="date-time"
-  >
-  {/* Animación de parallax sutil en el fondo */}
+>
+  {/* Capa 1: Fondo base con posición optimizada para móvil y desktop */}
   <div
-    className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
+    className="absolute inset-0 bg-cover bg-[position:35%_center] md:bg-center bg-scroll md:bg-fixed"
     style={{
-      backgroundImage: `url('DSC_605.JPG')`,
-      opacity: 0.6
+      backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)), url('DSC_6544.JPG')`
+    }}
+  />
+
+  {/* Capa 2: Animación superpuesta sin zoom agresivo en mobile */}
+  <div
+    className="absolute inset-0 bg-cover bg-center sm:animate-subtle-zoom opacity-60 pointer-events-none"
+    style={{
+      backgroundImage: `url('DSC_605.JPG')`
     }}
   />
 
@@ -667,39 +669,42 @@ const handleSubmit = async (
       Fecha y Hora
     </h2>
 
-    <div className={`max-w-2xl mx-auto bg-white/20 backdrop-blur-sm shadow-2xl p-8 md:p-12 rounded-2xl ${dateTimeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
+    <div className={`max-w-2xl mx-auto bg-white/30 backdrop-blur-md shadow-2xl p-6 sm:p-8 md:p-12 rounded-2xl ${dateTimeVisible ? 'animate-fade-in-up-delayed' : 'opacity-0'}`}>
       <div className="text-center space-y-6">
-        <div className={`font-['Lora'] text-xl md:text-2xl text-dark-espresso font-semibold  ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>SÁBADO</div>
+        <div className={`font-['Lora'] text-xl md:text-2xl text-dark-espresso font-semibold ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>SÁBADO</div>
         <div className={`font-['Lora'] text-6xl md:text-8xl font-bold text-warm-taupe ${dateTimeVisible ? 'animate-scale-in-content' : 'opacity-0'}`}>06</div>
-        <div className={`font-['Lora'] text-xl md:text-2xl text-dark-espresso font-semibold  ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>Febrero 2027</div>
+        <div className={`font-['Lora'] text-xl md:text-2xl text-dark-espresso font-semibold ${dateTimeVisible ? 'animate-fade-in-content' : 'opacity-0'}`}>Febrero 2027</div>
 
         <div className="my-8 flex justify-center">
-          <div className={`border-t-2 border-gray-sage ${dateTimeVisible ? 'animate-expand-width' : 'w-0'}`} />
+          <div className={`border-t-2 border-gray-sage transition-all duration-700 ${dateTimeVisible ? 'w-full max-w-xs' : 'w-0'}`} />
         </div>
 
         <div className="space-y-6">
           <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
-          <p className="font-['Lora'] text-xl text-dark-espresso mb-2">Recepción:</p>
-          <p className="font-['Lora'] text-3xl md:text-4xl text-warm-taupe">18:30<span className='text-xl'></span></p>
+            <p className="font-['Lora'] text-xl text-dark-espresso mb-1">Recepción:</p>
+            <p className="font-['Lora'] text-3xl md:text-4xl text-warm-taupe">18:30</p>
           </div>
           
           <div className={dateTimeVisible ? 'animate-fade-in-content-slower' : 'opacity-0'}>
-          <p className="font-['Lora'] text-xl text-dark-espresso mb-2">Ceremonia:</p>
-            <p className="font-['Lora'] text-3xl md:text-4xl text-warm-taupe">19:00 <span className='text-xl'></span></p>
+            <p className="font-['Lora'] text-xl text-dark-espresso mb-1">Ceremonia:</p>
+            <p className="font-['Lora'] text-3xl md:text-4xl text-warm-taupe">19:00</p>
+          </div>
+
+          <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
+            <p className="font-['Lora'] text-xl text-dark-espresso mb-1">Cena:</p>
+            <p className="font-['Lora'] text-3xl md:text-4xl text-warm-taupe">20:30</p>
+          </div>
+
+          <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
+            <p className="font-['Lora'] text-xl text-dark-espresso mb-1">Despedida:</p>
+            <p className="font-['Lora'] text-3xl md:text-4xl text-warm-taupe">01:00</p>
           </div>
         </div>
 
-        <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
-          <p className="font-['Lora'] text-xl text-dark-espresso mb-2">Cena:</p>
-          <p className="font-['Lora'] text-3xl md:text-4xl text-warm-taupe">20:30<span className='text-xl'></span></p>
-          </div>
-
-        <div className={dateTimeVisible ? 'animate-fade-in-content-slow' : 'opacity-0'}>
-          <p className="font-['Lora'] text-xl text-dark-espresso mb-2">Despedida:</p>
-          <p className="font-['Lora'] text-3xl md:text-4xl text-warm-taupe">01:00<span className='text-xl'></span></p>
-          </div>
-
-        <div className="font-['Lora'] italic text-dark-espresso mb-2">¡Vení temprano! El horario del civil es estricto e improrrogable.</div>      </div>
+        <div className="font-['Lora'] italic text-dark-espresso pt-4 text-sm md:text-base">
+          ¡Vení temprano! El horario del civil es estricto e improrrogable.
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -870,80 +875,79 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
 
 
         {/* Photo Gallery Section - Carousel */}
-        <section
-          className="py-8 md:py-16"
-          id="photo-gallery" style={{ backgroundColor: 'rgb(251, 248, 242)' }}
-        >
-          <div className="w-full">
-            <div className="text-center mb-8 md:mb-12 px-4">
-              <h2 className="font-serif italic text-3xl md:text-5xl text-dark-espresso mb-4">
-                  Un nuevo capítulo comienza.
-              </h2>
-              <p className="font-['Lora'] text-gray-sage text-lg">Sé testigo del inicio de nuestro viaje</p>
-            </div>
+<section
+  className="py-8 md:py-16"
+  id="photo-gallery" 
+  style={{ backgroundColor: 'rgb(251, 248, 242)' }}
+>
+  <div className="w-full">
+    <div className="text-center mb-8 md:mb-12 px-4">
+      <h2 className="font-serif italic text-3xl md:text-5xl text-dark-espresso mb-4">
+        Un nuevo capítulo comienza.
+      </h2>
+      <p className="font-['Lora'] text-gray-sage text-lg">Sé testigo del inicio de nuestro viaje</p>
+    </div>
 
-            {/* Carousel Container - Mobile: 1 image, Desktop: infinite loop */}
-            <div className="relative w-full">
-              {/* Mobile: Single image carousel */}
-              <div className="md:hidden h-[70vh] relative overflow-hidden shadow-2xl bg-gray-100">
-                {carouselImages.map((image, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${
-                      index === currentSlide
-                        ? 'opacity-100 scale-100'
-                        : 'opacity-0 scale-95'
-                    }`}
-                  >
-                    <img
-                      src={image}
-                      alt={`Foto ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {/* Desktop: Infinite scroll carousel - loop continuo */}
-              <div className="hidden md:block h-[75vh] relative overflow-hidden">
-                <div className="infinite-scroll-container">
-                  {/* Primera serie de imágenes */}
-                  {carouselImages.map((image, index) => (
-                    <div
-                      key={`first-${index}`}
-                      className="infinite-scroll-item group bg-gradient-to-br from-gray-100 to-gray-200"
-                    >
-                      <img
-                        src={image}
-                        alt={`Foto ${index + 1}`}
-                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                      />
-                      {/* Overlay sutil en hover */}
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
-                    </div>
-                  ))}
-                  {/* Segunda serie de imágenes (duplicado para loop infinito) */}
-                  {carouselImages.map((image, index) => (
-                    <div
-                      key={`second-${index}`}
-                      className="infinite-scroll-item group bg-gradient-to-br from-gray-100 to-gray-200"
-                    >
-                      <img
-                        src={image}
-                        alt={`Foto ${index + 1}`}
-                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                      />
-                      {/* Overlay sutil en hover */}
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+    {/* Carousel Container */}
+    <div className="relative w-full">
+      
+      {/* Mobile Carousel (Corregido) */}
+      <div className="md:hidden aspect-[4/5] sm:aspect-square max-h-[60vh] mx-auto relative overflow-hidden shadow-xl rounded-xl bg-gray-100/50 w-[90%]">
+        {carouselImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${
+              index === currentSlide
+                ? 'opacity-100 scale-100'
+                : 'opacity-0 scale-95'
+            }`}
+          >
+            <img
+              src={image}
+              alt={`Foto ${index + 1}`}
+              className="w-full h-full object-contain bg-black/5"
+            />
           </div>
-          <br />
-          <br />
-        </section>
+        ))}
+      </div>
+
+      {/* Desktop: Infinite scroll carousel */}
+      <div className="hidden md:block h-[75vh] relative overflow-hidden">
+        <div className="infinite-scroll-container">
+          {/* Primera serie de imágenes */}
+          {carouselImages.map((image, index) => (
+            <div
+              key={`first-${index}`}
+              className="infinite-scroll-item group bg-gradient-to-br from-gray-100 to-gray-200"
+            >
+              <img
+                src={image}
+                alt={`Foto ${index + 1}`}
+                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+            </div>
+          ))}
+          {/* Segunda serie de imágenes (duplicado) */}
+          {carouselImages.map((image, index) => (
+            <div
+              key={`second-${index}`}
+              className="infinite-scroll-item group bg-gradient-to-br from-gray-100 to-gray-200"
+            >
+              <img
+                src={image}
+                alt={`Foto ${index + 1}`}
+                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 
         
@@ -956,14 +960,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
   }}
   id="dress-code"
 >
-  {/* Animación de parallax sutil en el fondo 
-  <div
-    className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
-    style={{
-      backgroundImage: `url('/DSC_6931.JPG')`,
-      opacity: 0.5
-    }}
-  />*/}
+
 
   <div className="container mx-auto px-4 relative z-10">
     <h2 className={`font-serif italic text-4xl md:text-6xl text-center text-dark-espresso mb-12 ${dressCodeVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
