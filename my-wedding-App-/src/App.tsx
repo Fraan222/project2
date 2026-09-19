@@ -72,6 +72,9 @@ export default function App(): React.JSX.Element {
   const [showSplash, setShowSplash] = useState<boolean>(true);
   const [fadeOut, setFadeOut] = useState<boolean>(false);
 
+  // Estado para el video
+  const [playVideo, setPlayVideo] = useState<boolean>(false);
+  const [videoEnded, setVideoEnded] = useState<boolean>(false);
 
   // Estado para el modal del formulario RSVP
   const [showRSVPModal, setShowRSVPModal] = useState<boolean>(false);
