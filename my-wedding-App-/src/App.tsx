@@ -1322,13 +1322,6 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
     <option value="vegetariano">Vegetariano</option>
     <option value="vegano">Vegano</option>
     <option value="sinGluten">Sin Gluten (celíaco)</option>
-    <option value="sinLactosa">Sin Lactosa</option>
-    <option value="sinAzucar">Sin Azúcar / Diabético</option>
-    <option value="kosher">Kosher</option>
-    <option value="halal">Halal</option>
-    <option value="bajoEnSal">Bajo en Sal / Hipertenso</option>
-    <option value="paleo">Paleo</option>
-    <option value="pescetariano">Pescetariano</option>
     <option value="otra">Otra</option>
   </select>
 </div>
