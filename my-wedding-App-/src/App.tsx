@@ -893,9 +893,9 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
     {/* Carousel Container */}
     <div className="relative w-full">
       
-      {/* Mobile Carousel (Proporción apaisada natural) */}
+      {/* Mobile Carousel (Proporción vertical, para fotos verticales) */}
       <div className="md:hidden w-full px-4">
-        <div className="relative aspect-[4/3] w-full mx-auto overflow-hidden shadow-2xl rounded-2xl">
+        <div className="relative aspect-[3/4] w-full mx-auto overflow-hidden shadow-2xl rounded-2xl">
           {carouselImages.map((image, index) => (
             <div
               key={index}
