@@ -876,8 +876,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
         </section>
 
 
-
-        {/* Photo Gallery Section - Carousel */}
+{/* Photo Gallery Section - Carousel */}
 <section
   className="py-8 md:py-16"
   id="photo-gallery" 
@@ -894,24 +893,26 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
     {/* Carousel Container */}
     <div className="relative w-full">
       
-      {/* Mobile Carousel (Corregido) */}
-      <div className="md:hidden aspect-[4/5] sm:aspect-square max-h-[60vh] mx-auto relative overflow-hidden shadow-xl rounded-xl bg-gray-100/50 w-[90%]">
-        {carouselImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${
-              index === currentSlide
-                ? 'opacity-100 scale-100'
-                : 'opacity-0 scale-95'
-            }`}
-          >
-            <img
-              src={image}
-              alt={`Foto ${index + 1}`}
-              className="w-full h-full object-contain bg-black/5"
-            />
-          </div>
-        ))}
+      {/* Mobile Carousel (Corregido para llenar pantalla sin bordes sobrantes) */}
+      <div className="md:hidden w-full px-4">
+        <div className="relative aspect-[3/4] max-h-[75vh] w-full mx-auto overflow-hidden shadow-2xl rounded-2xl">
+          {carouselImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${
+                index === currentSlide
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-105'
+              }`}
+            >
+              <img
+                src={image}
+                alt={`Foto ${index + 1}`}
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Desktop: Infinite scroll carousel */}
@@ -963,7 +964,14 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
   }}
   id="dress-code"
 >
-
+  {/* Animación de parallax sutil en el fondo 
+  <div
+    className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
+    style={{
+      backgroundImage: `url('/DSC_6931.JPG')`,
+      opacity: 0.5
+    }}
+  />*/}
 
   <div className="container mx-auto px-4 relative z-10">
     <h2 className={`font-serif italic text-4xl md:text-6xl text-center text-dark-espresso mb-12 ${dressCodeVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
