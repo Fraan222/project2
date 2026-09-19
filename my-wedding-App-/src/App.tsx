@@ -556,7 +556,7 @@ const handleSubmit = async (
           <div className="text-center px-4 animate-fade-in">
             <div className="mb-8">
             </div>
-            <h1 className="font-serif italic text-5xl md:text-7xl text-cream-beige mb-6">
+            <h1 className="font-serif italic text-5xl md:text-7xl text-amber-200 mb-6 ">
                {novios}
             </h1>
             <p className=" font-['Lora'] text-xl md:text-2xl text-white mb-8">
@@ -599,7 +599,7 @@ const handleSubmit = async (
      Nos Casamos
     </div>
 
-    <div className="font-serif italic text-5xl md:text-7xl my-8">
+    <div className="font-serif italic text-5xl md:text-7xl my-8 ">
      {novios}
     </div>
 
@@ -646,6 +646,7 @@ const handleSubmit = async (
     </div>
   </div>
 </section>
+
        {/* Date & Time Section */}
 <section
   className="py-12 md:py-24 relative overflow-hidden"
@@ -659,13 +660,7 @@ const handleSubmit = async (
     }}
   />
 
-  {/* Capa 2: Animación superpuesta sin zoom agresivo en mobile */}
-  <div
-    className="absolute inset-0 bg-cover bg-center sm:animate-subtle-zoom opacity-60 pointer-events-none"
-    style={{
-      backgroundImage: `url('DSC_605.JPG')`
-    }}
-  />
+
 
   <div className="container mx-auto px-4 relative z-10">
     <h2 className={`font-serif italic text-4xl md:text-6xl text-center text-dark-espresso mb-12 ${dateTimeVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -1205,132 +1200,132 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
                 </p>
               </div>
 
-              {/* Formulario de RSVP */}
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Nombre completo */}
-                <div>
-                  <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-2">
-                    Nombres de asistentes*
-                  </label>
-                  <input
-                    type="text"
-                    id="nombre"
-                    name="nombre"
-                    required
-                    value={formData.nombre}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition placeholder:text-gray-400"
-                    placeholder="Juan Pérez, María Gómez, Pedro López"
-                  />
-                </div>
+           {/* Formulario de RSVP */}
+<form onSubmit={handleSubmit} className="space-y-6">
+  {/* Nombre completo */}
+  <div>
+    <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-2">
+      Nombres de asistentes*
+    </label>
+    <input
+      type="text"
+      id="nombre"
+      name="nombre"
+      required
+      value={formData.nombre}
+      onChange={handleInputChange}
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition placeholder:text-gray-400 text-gray-900 bg-white"
+      placeholder="Juan Pérez, María Gómez, Pedro López"
+    />
+  </div>
 
-                {/* Email 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition placeholder:text-gray-400"
-                    placeholder="tu@email.com"
-                  />
-                </div>*/}
+  {/* Email 
+  <div>
+    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+      Email *
+    </label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      value={formData.email}
+      onChange={handleInputChange}
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition placeholder:text-gray-400 text-gray-900 bg-white"
+      placeholder="tu@email.com"
+    />
+  </div>*/}
 
-                {/* Teléfono */}
-                <div>
-                  <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-2">
-                    Teléfono
-                  </label>
-                  <input
-                    type="tel"
-                    id="telefono"
-                    name="telefono"
-                    value={formData.telefono}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition placeholder:text-gray-400"
-                    placeholder="+52 123 456 7890"
-                  />
-                </div>
+  {/* Teléfono */}
+  <div>
+    <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-2">
+      Teléfono
+    </label>
+    <input
+      type="tel"
+      id="telefono"
+      name="telefono"
+      value={formData.telefono}
+      onChange={handleInputChange}
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition placeholder:text-gray-400 text-gray-900 bg-white"
+      placeholder="+52 123 456 7890"
+    />
+  </div>
 
-                {/* Asistencia */}
-                <div>
-                  <label htmlFor="asistencia" className="block text-sm font-medium text-gray-700 mb-2">
-                    ¿Podrás asistir? *
-                  </label>
-                  <select
-                    id="asistencia"
-                    name="asistencia"
-                    required
-                    value={formData.asistencia}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition text-gray-900"
-                  >
-                    <option value="si">Sí, confirmo asistencia ✓</option>
-                    <option value="no">No, no podré asistir</option>
-                  </select>
-                </div>
+  {/* Asistencia */}
+  <div>
+    <label htmlFor="asistencia" className="block text-sm font-medium text-gray-700 mb-2">
+      ¿Podrás asistir? *
+    </label>
+    <select
+      id="asistencia"
+      name="asistencia"
+      required
+      value={formData.asistencia}
+      onChange={handleInputChange}
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition text-gray-900 bg-white"
+    >
+      <option value="si">Sí, confirmo asistencia ✓</option>
+      <option value="no">No, no podré asistir</option>
+    </select>
+  </div>
 
-                {/* Número de acompañantes 
-                <div>
-                  <label htmlFor="numeroAcompanantes" className="block text-sm font-medium text-gray-700 mb-2">
-                    Número de acompañantes
-                  </label>
-                  <select
-                    id="numeroAcompanantes"
-                    name="numeroAcompanantes"
-                    value={formData.numeroAcompanantes}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition text-gray-900"
-                  >
-                    <option value="0">Solo yo</option>
-                    <option value="1">1 acompañante</option>
-                    <option value="2">2 acompañantes</option>
-                    <option value="3">3 acompañantes</option>
-                    <option value="4">4+ acompañantes</option>
-                  </select>
-                </div>*/}
+  {/* Número de acompañantes 
+  <div>
+    <label htmlFor="numeroAcompanantes" className="block text-sm font-medium text-gray-700 mb-2">
+      Número de acompañantes
+    </label>
+    <select
+      id="numeroAcompanantes"
+      name="numeroAcompanantes"
+      value={formData.numeroAcompanantes}
+      onChange={handleInputChange}
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition text-gray-900 bg-white"
+    >
+      <option value="0">Solo yo</option>
+      <option value="1">1 acompañante</option>
+      <option value="2">2 acompañantes</option>
+      <option value="3">3 acompañantes</option>
+      <option value="4">4+ acompañantes</option>
+    </select>
+  </div>*/}
 
-                {/* Alergias */}
-                <div>
-                  <label htmlFor="alergias" className="block text-sm font-medium text-gray-700 mb-2">
-                    ¿Tienes alguna alergia alimentaria?
-                  </label>
-                  <input
-                    type="text"
-                    id="alergias"
-                    name="alergias"
-                    value={formData.alergias}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition placeholder:text-gray-400"
-                    placeholder="Ej: Nueces, mariscos, lácteos..."
-                  />
-                </div>
+  {/* Alergias */}
+  <div>
+    <label htmlFor="alergias" className="block text-sm font-medium text-gray-700 mb-2">
+      ¿Tienes alguna alergia alimentaria?
+    </label>
+    <input
+      type="text"
+      id="alergias"
+      name="alergias"
+      value={formData.alergias}
+      onChange={handleInputChange}
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition placeholder:text-gray-400 text-gray-900 bg-white"
+      placeholder="Ej: Nueces, mariscos, lácteos..."
+    />
+  </div>
 
-                {/* Dieta especial */}
-                <div>
-                  <label htmlFor="dietaEspecial" className="block text-sm font-medium text-gray-700 mb-2">
-                    Preferencia alimentaria
-                  </label>
-                  <select
-                    id="dietaEspecial"
-                    name="dietaEspecial"
-                    value={formData.dietaEspecial}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition text-gray-900"
-                  >
-                    <option value="ninguna">Ninguna</option>
-                    <option value="vegetariano">Vegetariano</option>
-                    <option value="vegano">Vegano</option>
-                    <option value="sinGluten">Sin gluten</option>
-                    <option value="otra">Otra</option>
-                  </select>
-                </div>
-
+  {/* Dieta especial */}
+  <div>
+    <label htmlFor="dietaEspecial" className="block text-sm font-medium text-gray-700 mb-2">
+      Preferencia alimentaria
+    </label>
+    <select
+      id="dietaEspecial"
+      name="dietaEspecial"
+      value={formData.dietaEspecial}
+      onChange={handleInputChange}
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-warm-taupe focus:border-warm-taupe transition text-gray-900 bg-white"
+    >
+      <option value="ninguna">Ninguna</option>
+      <option value="vegetariano">Vegetariano</option>
+      <option value="vegano">Vegano</option>
+      <option value="sinGluten">Sin gluten</option>
+      <option value="otra">Otra</option>
+    </select>
+  </div>
+</form>
                 
 
                 {/* Estado del formulario */}
