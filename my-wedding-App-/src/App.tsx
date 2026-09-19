@@ -565,9 +565,9 @@ const handleSubmit = async (
             <p className=" font-['Lora'] text-lg md:text-xl text-silver-mist mb-12">
               6 de Febrero, 2027
             </p>
-            <p className="font-['Lora'] text-sm md:text-base text-silver-mist animate-bounce">
-              Toca para continuar
-            </p>
+           <p className="bg-white/20 backdrop-blur-md font-['Lora'] text-sm md:text-base text-silver-mist animate-bounce rounded-full px-6 py-2">
+       Toca para continuar
+          </p>
           </div>
         </div>
       )}
@@ -879,7 +879,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
               <h2 className="font-serif italic text-3xl md:text-5xl text-dark-espresso mb-4">
                   Un nuevo capítulo comienza.
               </h2>
-              <p className="font-['Lora'] text-gray-sage text-lg">sé testigo del inicio de nuestro viaje</p>
+              <p className="font-['Lora'] text-gray-sage text-lg">Sé testigo del inicio de nuestro viaje</p>
             </div>
 
             {/* Carousel Container - Mobile: 1 image, Desktop: infinite loop */}
