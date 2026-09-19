@@ -876,82 +876,82 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
         </section>
 
 
-{/* Photo Gallery Section - Carousel */}
-<section
-  className="py-8 md:py-16"
-  id="photo-gallery" 
-  style={{ backgroundColor: 'rgb(251, 248, 242)' }}
->
-  <div className="w-full">
-    <div className="text-center mb-8 md:mb-12 px-4">
-      <h2 className="font-serif italic text-3xl md:text-5xl text-dark-espresso mb-4">
-        Un nuevo capítulo comienza.
-      </h2>
-      <p className="font-['Lora'] text-gray-sage text-lg">Sé testigo del inicio de nuestro viaje</p>
-    </div>
 
-    {/* Carousel Container */}
-    <div className="relative w-full">
-      
-      {/* Mobile Carousel (Proporción apaisada natural) */}
-      <div className="md:hidden w-full px-4">
-        <div className="relative aspect-[4/3] w-full mx-auto overflow-hidden shadow-2xl rounded-2xl">
-          {carouselImages.map((image, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${
-                index === currentSlide
-                  ? 'opacity-100 scale-100'
-                  : 'opacity-0 scale-105'
-              }`}
-            >
-              <img
-                src={image}
-                alt={`Foto ${index + 1}`}
-                className="w-full h-full object-cover object-center"
-              />
+        {/* Photo Gallery Section - Carousel */}
+        <section
+          className="py-8 md:py-16"
+          id="photo-gallery" style={{ backgroundColor: 'rgb(251, 248, 242)' }}
+        >
+          <div className="w-full">
+            <div className="text-center mb-8 md:mb-12 px-4">
+              <h2 className="font-serif italic text-3xl md:text-5xl text-dark-espresso mb-4">
+                  Un nuevo capítulo comienza.
+              </h2>
+              <p className="font-['Lora'] text-gray-sage text-lg">sé testigo del inicio de nuestro viaje</p>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Desktop: Infinite scroll carousel */}
-      <div className="hidden md:block h-[75vh] relative overflow-hidden">
-        <div className="infinite-scroll-container">
-          {/* Primera serie de imágenes */}
-          {carouselImages.map((image, index) => (
-            <div
-              key={`first-${index}`}
-              className="infinite-scroll-item group bg-gradient-to-br from-gray-100 to-gray-200"
-            >
-              <img
-                src={image}
-                alt={`Foto ${index + 1}`}
-                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
-            </div>
-          ))}
-          {/* Segunda serie de imágenes (duplicado) */}
-          {carouselImages.map((image, index) => (
-            <div
-              key={`second-${index}`}
-              className="infinite-scroll-item group bg-gradient-to-br from-gray-100 to-gray-200"
-            >
-              <img
-                src={image}
-                alt={`Foto ${index + 1}`}
-                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
-            </div>
-          ))}
-        </div>
-      </div>
+            {/* Carousel Container - Mobile: 1 image, Desktop: infinite loop */}
+            <div className="relative w-full">
+              {/* Mobile: Single image carousel */}
+              <div className="md:hidden h-[70vh] relative overflow-hidden shadow-2xl bg-gray-100">
+                {carouselImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${
+                      index === currentSlide
+                        ? 'opacity-100 scale-100'
+                        : 'opacity-0 scale-95'
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`Foto ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
 
-    </div>
-  </div>
-</section>
+              {/* Desktop: Infinite scroll carousel - loop continuo */}
+              <div className="hidden md:block h-[75vh] relative overflow-hidden">
+                <div className="infinite-scroll-container">
+                  {/* Primera serie de imágenes */}
+                  {carouselImages.map((image, index) => (
+                    <div
+                      key={`first-${index}`}
+                      className="infinite-scroll-item group bg-gradient-to-br from-gray-100 to-gray-200"
+                    >
+                      <img
+                        src={image}
+                        alt={`Foto ${index + 1}`}
+                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                      />
+                      {/* Overlay sutil en hover */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+                    </div>
+                  ))}
+                  {/* Segunda serie de imágenes (duplicado para loop infinito) */}
+                  {carouselImages.map((image, index) => (
+                    <div
+                      key={`second-${index}`}
+                      className="infinite-scroll-item group bg-gradient-to-br from-gray-100 to-gray-200"
+                    >
+                      <img
+                        src={image}
+                        alt={`Foto ${index + 1}`}
+                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                      />
+                      {/* Overlay sutil en hover */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+        </section>
 
 
         
