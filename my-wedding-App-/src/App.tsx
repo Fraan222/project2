@@ -140,13 +140,13 @@ const [formData, setFormData] = useState<FormData>(initialFormState);
 
   // Imágenes del carousel
   const carouselImages: string[] = [
-    '/DSC_5804.JPG',
-    '/DSC_6837.JPG',
-    '/DSC_6256.JPG',
-    '/DSC_5675.JPG',
-    '/DSC_6644.JPG',
-    '/DSC_7149.JPG',
-    '/DSC_6817.JPG',
+    '/DSC_5804.webp',
+    '/DSC_6837.webp',
+    '/DSC_6256.webp',
+    '/DSC_5675.webp',
+    '/DSC_6644.webp',
+    '/DSC_7149.webp',
+    '/DSC_6817.webp',
   ];
 
   const novios: string = "Flor & Yoel";
@@ -347,7 +347,7 @@ useEffect(() => {
 
 useEffect(() => {
   const splashImage = new Image();
-  splashImage.src = '/DSC_6050.JPG';
+  splashImage.src = '/DSC_6050.webp';
 
   const finishLoading = () => {
     setLoadingProgress(100);
@@ -550,7 +550,7 @@ const handleSubmit = async (
             fadeOut ? 'opacity-0' : 'opacity-100'
           }`}
           style={{
-            backgroundImage: `radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/DSC_5798.JPG')`
+            backgroundImage: `radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/DSC_5798.webp')`
           }}
         >
           <div className="text-center px-4 animate-fade-in">
@@ -588,7 +588,7 @@ const handleSubmit = async (
   <div
     className="absolute inset-0 bg-cover bg-center"
     style={{
-      backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/DSC_6050.JPG')`,
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/DSC_6050.webp')`,
     }}
   />
 
@@ -656,7 +656,7 @@ const handleSubmit = async (
   <div
     className="absolute inset-0 bg-cover bg-[position:35%_center] md:bg-center bg-scroll md:bg-fixed"
     style={{
-      backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)), url('DSC_6544.JPG')`
+      backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)), url('DSC_6544.webp')`
     }}
   />
 
@@ -739,7 +739,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
         <section
           className="py-16 md:py-24 relative bg-cover bg-center overflow-hidden"
           style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('DSC_6626.JPG')`
+            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('DSC_6626.webp')`
           }}
           id="date-time"
           >
@@ -748,7 +748,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
           <div
             className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
             style={{
-              backgroundImage: `, url('DSC_6626.JPG')`,
+              backgroundImage: `, url('DSC_6626.webp')`,
               opacity: 0.7
             }}
           />
@@ -955,7 +955,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
 <section
   className="py-16 md:py-24 relative bg-cover bg-center overflow-hidden"
   style={{
-    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),  url('/DSC_6077.JPG')`
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),  url('/DSC_6077.webp')`
   }}
   id="dress-code"
 >
@@ -1050,7 +1050,7 @@ Con mucha alegría, queremos celebrar este día junto a quienes amamos y son par
   style={{ backgroundColor: 'rgb(251, 248, 242)' }}
 >
   <img
-    src="/jeje.png"
+    src="/jeje.webp"
     alt=""
     className={`w-80 md:w-[32rem] max-w-full transition-all duration-1000 ease-out ${
       dividerVisible ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-6'
